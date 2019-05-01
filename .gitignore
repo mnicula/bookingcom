@@ -1,1 +1,7 @@
-
+.idea/*
+target/
+test-output/
+*.png
+*.html
+*.iml
+out
