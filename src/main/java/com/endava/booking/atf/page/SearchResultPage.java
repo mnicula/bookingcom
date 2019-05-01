@@ -1,28 +1,28 @@
 package com.endava.booking.atf.page;
 
-
 import com.endava.booking.atf.common.action.BasePage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class AccommodationsPage extends BasePage {
+
+public class SearchResultPage extends BasePage {
 
 
-    @FindBy (xpath = "//button[@data-sb-id='main']")
-    private WebElement searchButton;
 
+    @FindBy(xpath="//div[@class='destination-sr-header__col destination-sr-header__content']")
+    WebElement searchHeader;
 
-    public AccommodationsPage(WebDriver driver) {
+    public SearchResultPage(WebDriver driver) {
         super(driver);
     }
 
-    public boolean isElementDisplayed(){
+    @Override
+    public boolean isElementDisplayed() {
         try {
-            return this.searchButton.isDisplayed();
+            return this.searchHeader.isDisplayed();
         } catch (Exception e){
             return false;
         }
     }
-
 }

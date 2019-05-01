@@ -28,6 +28,16 @@ public class PageObjectUtilities {
         return parentPage;
     }
 
+    public Method getWriteMethod(Object page, String methodName) {
+        Method method = null;
+        try {
+            method = page.getClass().getMethod(methodName, WebElement.class, String.class);
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
+        }
+        return method;
+    }
+
     public Method getClickMethod(Object page, String methodName) {
         Method method = null;
         try {

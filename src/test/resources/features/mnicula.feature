@@ -1,7 +1,8 @@
-Feature: booking
+Feature:booking
   @search @mnicula
   Scenario: User search a hotel room
-    Given user is on 'Accommodations' page
-    #When user enters the search details
-    #And clicks on 'search' button
-    #Then the search results are displayed
+    Given user is on 'Home' page
+    When user completes the 'locationField' field with 'Moscow' value
+    And user sets dates
+    And user clicks on 'searchButton'
+    Then 'SearchResult' page is displayed
