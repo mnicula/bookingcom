@@ -5,7 +5,7 @@ import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-        tags = {"@1"},//scenarios to run
+        tags = {"@3"},//scenarios to run
         glue = {"hooks" , "stepDefinition"},
         monochrome = true
 //TODO generate cucumber report

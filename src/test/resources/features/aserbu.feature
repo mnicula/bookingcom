@@ -31,3 +31,20 @@ Feature: booking
     Examples:
       | email              | password |
       | atftest09@mail.com | test1234 |
+
+
+#  @login @positive @aserbu @3
+#  Scenario Outline: Check if registered user is able to authenticate and then log out
+#    Given user is on 'Home' page
+#    When user clicks on 'signIn'
+#    And user is on 'Login' page
+#    And  user completes the 'emailSignIn' field with '<email>' value
+#    And user clicks on 'nextSignInButton'
+#    And  user completes the 'passwordSignIn' field with '<password>' value
+#    And user clicks on 'SignInButton'
+#    And user is authenticated
+#
+#
+#    Examples:
+#      | email                | password  |
+#      | test1234@test123.com | 123123123 |
