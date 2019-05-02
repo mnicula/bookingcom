@@ -13,7 +13,7 @@ Feature: booking
     Then user is registered
     Examples:
       | email              | password |
-      | atftest10@mail.com | test1234 |
+      | atftest13@mail.com | test1234 |
 
 
   @register @negative @aserbu @2
