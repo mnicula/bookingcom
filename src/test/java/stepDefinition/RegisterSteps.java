@@ -15,6 +15,8 @@ public class RegisterSteps extends BaseStep {
         super ( context );
     }
 
+//TODO write each step down in logs
+
 
     @Then("^user is registered$")
     public void userUserIsRegistered() {

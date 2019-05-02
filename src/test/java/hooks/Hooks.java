@@ -24,7 +24,7 @@ public class Hooks {
 
     @After
     public void AfterSteps() throws IOException {
-        testContext.getWebDriverManager().closeDriver();
+        testContext.getWebDriverManager ().closeDriver ();
     }
 
 }

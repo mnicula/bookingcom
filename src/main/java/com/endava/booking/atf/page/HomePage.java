@@ -34,6 +34,8 @@ public class HomePage extends BasePage {
 
     @FindBy(xpath = "//input[@type='search']")
     WebElement locationField;
+    @FindBy(xpath = "//span[contains(text(),'Register')]")
+    WebElement registerButton;
     @FindBy(xpath = "//div[@class='xp__dates-inner']")
     WebElement dateSelector;
     @FindBy(xpath = "//div[@class='bui-calendar__wrapper']")
@@ -51,5 +53,7 @@ public class HomePage extends BasePage {
         dateTables.get(1);
         dates.get(20).click();
     }
+
+
 
 }

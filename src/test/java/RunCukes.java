@@ -5,14 +5,13 @@ import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-        tags = {"@mnicula"},//scenarios to run
-        glue = {"hooks","stepDefinition"},
+        tags = {"@1"},//scenarios to run
+        glue = {"hooks" , "stepDefinition"},
         monochrome = true
-
+//TODO generate cucumber report
 )
 
 public class RunCukes {
-
 
 
 }
