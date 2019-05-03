@@ -13,7 +13,7 @@ public class LoginPage extends BasePage {
     WebElement nextSignInButton;
     @FindBy(xpath = "//input[@id='username']")
     WebElement emailSignIn;
-    @FindBy(xpath = "//input[@id='username']")
+    @FindBy(xpath = "//input[@id='password']")
     WebElement passwordSignIn;
     @FindBy(xpath = "//span[@class='bui-button__text']")
     WebElement signInButton;
