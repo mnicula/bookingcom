@@ -16,7 +16,7 @@ public class WebDriverManager {
     private static final String DRIVER_PATH = com.endava.booking.atf.manager.FileReaderManager.getInstance().getConfigFileReader().getDriverPath();
 
     public WebDriverManager() {
-        browser = com.endava.booking.atf.manager.FileReaderManager.getInstance().getConfigFileReader().getBrower();
+        browser = com.endava.booking.atf.manager.FileReaderManager.getInstance().getConfigFileReader().getBrowser();
     }
 
     public WebDriver getDriver() {
@@ -29,6 +29,12 @@ public class WebDriverManager {
             case CHROME:
                 System.setProperty(Browser.CHROME.getDriverProperty(), DRIVER_PATH + "chromedriver.exe");
                 driver = new ChromeDriver();
+                break;
+            case INTERNETEXPLORER:
+                DesiredCapabilities defaultZoom = DesiredCapabilities.internetExplorer();
+                defaultZoom.setCapability("ignoreZoomSetting", true);
+                System.setProperty(Browser.INTERNETEXPLORER.getDriverProperty(), DRIVER_PATH + "IEDriverServer.exe");
+                driver = new InternetExplorerDriver(defaultZoom);
                 break;
         }
         goToHomePage();
@@ -58,9 +64,7 @@ public class WebDriverManager {
         try {
             driver.quit();
         } catch (Exception e) {
-            Runtime.getRuntime().exec("taskkill /F /IM plugin-container.exe");
-            Runtime.getRuntime().exec("taskkill /F /IM firefox.exe");
-
+            e.printStackTrace();
         }
     }
 

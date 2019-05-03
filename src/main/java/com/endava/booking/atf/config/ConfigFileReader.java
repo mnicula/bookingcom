@@ -42,7 +42,7 @@ public class ConfigFileReader {
             throw new RuntimeException("Application Url not specified in the " + PROPERTY_FILE_PATH + " file for the Key:homeURL");
     }
 
-    public Browser getBrower() {
+    public Browser getBrowser() {
         String browserName = properties.getProperty("browser");
         switch (browserName.toLowerCase()) {
             case "chrome":
