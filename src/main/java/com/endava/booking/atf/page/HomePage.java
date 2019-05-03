@@ -16,6 +16,8 @@ public class HomePage extends BasePage {
     public WebDriver driver;
     @FindBy(xpath = "//span[@class='header_name user_firstname ge-no-yellow-bg']")
     public WebElement yourAccountBlock;
+    @FindBy(xpath = "//*[@id=\"b2indexPage\"]/div[13]/button")
+    public WebElement closeButton;
     @FindBy(xpath = "//span[contains(text(),'Sign in')]")
     WebElement signIn;
     @FindBy(xpath = "//input[@type='search']")
@@ -30,6 +32,10 @@ public class HomePage extends BasePage {
     List < WebElement > dates;
     @FindBy(xpath = "//button[@data-sb-id='main']")
     private WebElement searchButton;
+    @FindBy (xpath = "//div[contains(@class,'profile-menu__item profile_menu__item--mysettings')]")
+    public WebElement settingsOption;
+
+
 
     public HomePage(WebDriver driver) {
         super ( driver );
