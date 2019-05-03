@@ -20,7 +20,7 @@ public class LoginSteps extends BaseStep {
         super ( context );
     }
 
-    @Then("^user is(.*) authenticated and is on home page$")
+    @Then("^user is(.*) authenticated$")
     public void user_is_authenticated(String arg0) throws InvocationTargetException, IllegalAccessException {
         Method method = utilities.getClickMethod ( page , "clicks" );
         WebElement webElement = wait.until ( ExpectedConditions.elementToBeClickable ( utilities.getWebElementByName ( page , "closeButton" ) ) );
@@ -31,7 +31,7 @@ public class LoginSteps extends BaseStep {
                 assertThat ( "User is authenticated " , homePage.checkIfUserIsLoggedIn ( homePage.yourAccountBlock ) , is ( true ) );
                 break;
             case "not":
-                assertThat ( "User is not authenticated " , homePage.checkIfUserIsLoggedIn ( homePage.yourAccountBlock ) , is ( false ) );
+                assertThat ( "User is not authenticated " , homePage.checkIfUserIsLoggedIn ( homePage.signIn ) , is ( false ) );
         }
     }
 }
