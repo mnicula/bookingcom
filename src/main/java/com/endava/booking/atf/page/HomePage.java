@@ -14,6 +14,9 @@ public class HomePage extends BasePage {
 
     public JavascriptExecutor jse;
     public WebDriver driver;
+
+    @FindBy(xpath = "//div[@id='cross-product-bar']//a[2]")
+    WebElement carRentals;
     @FindBy(xpath = "//span[@class='header_name user_firstname ge-no-yellow-bg']")
     public WebElement yourAccountBlock;
     @FindBy(xpath = "//*[@id=\"b2indexPage\"]/div[13]/button")

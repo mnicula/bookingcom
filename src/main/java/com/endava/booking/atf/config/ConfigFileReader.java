@@ -35,6 +35,13 @@ public class ConfigFileReader {
         }
     }
 
+    public String getURLLanguage() {
+        String language = properties.getProperty("language");
+        if (language != null) return language;
+        else
+            throw new RuntimeException("Application language not specified in the " + PROPERTY_FILE_PATH + " file for the Key:langauge");
+    }
+
     public String getApplicationHomeURL() {
         String homeURL = properties.getProperty("homeURL");
         if (homeURL != null) return homeURL;

@@ -19,6 +19,8 @@ public abstract class BasePage {
         elementAttr.sendKeys(text);
     }
 
+    public void selects(WebElement elementAttr) {elementAttr.click();}
+
     public String receives(WebElement elementAttr) {
         return elementAttr.getText();
     }
