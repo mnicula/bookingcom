@@ -1,6 +1,8 @@
 package com.endava.booking.atf.utilities;
 
 import com.endava.booking.atf.common.action.BasePage;
+import org.junit.jupiter.api.Test;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
@@ -8,6 +10,8 @@ import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.util.ArrayList;
+import java.util.List;
 
 public class PageObjectUtilities {
     private WebDriver driver;
@@ -38,6 +42,7 @@ public class PageObjectUtilities {
         return method;
     }
 
+
     public Method getClickMethod(Object page, String methodName) {
         Method method = null;
         try {
@@ -59,4 +64,11 @@ public class PageObjectUtilities {
         }
         return element;
     }
+
+    public void switchTab(int tabNr){
+        ArrayList <String> tabs = new ArrayList <>();
+        tabs.addAll(driver.getWindowHandles());
+        driver.switchTo().window(tabs.get(tabNr));
+    }
+
 }
