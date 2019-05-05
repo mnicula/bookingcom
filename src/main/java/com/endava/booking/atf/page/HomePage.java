@@ -2,6 +2,7 @@ package com.endava.booking.atf.page;
 
 
 import com.endava.booking.atf.common.action.BasePage;
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -35,7 +36,7 @@ public class HomePage extends BasePage {
     List < WebElement > dateTables;
     @FindBy(xpath = "//td[@class='bui-calendar__date']")
     List < WebElement > dates;
-    @FindBy(xpath = "//button[@data-sb-id='main']")
+    @FindBy(xpath = "//td[@class='bui-calendar__date']")
     private WebElement searchButton;
 
 
@@ -55,12 +56,21 @@ public class HomePage extends BasePage {
         }
     }
 
-    public void selectCheckInOutDate() {
+    public void selectDate(String date1,String date2) {
         dateSelector.click ();
-        dateTables.get ( 0 );
-        dates.get ( 10 ).click ();
-        dateTables.get ( 1 );
-        dates.get ( 20 ).click ();
+        for (int i = 0; i <dates.size() ; i++) {
+            if(dates.get(i).getText().contains(date1)){
+                dates.get(i).click();
+                break;
+            }
+        }
+
+        for (int i = 0; i <dates.size() ; i++) {
+            if(dates.get(i).getText().contains(date2)){
+                dates.get(i).click();
+                break;
+            }
+        }
     }
 
     public boolean checkIfUserIsLoggedIn(WebElement obj) {
