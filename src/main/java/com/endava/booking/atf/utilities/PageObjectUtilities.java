@@ -1,6 +1,8 @@
 package com.endava.booking.atf.utilities;
 
 import com.endava.booking.atf.common.action.BasePage;
+import org.junit.jupiter.api.Test;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
@@ -9,6 +11,7 @@ import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
+
 
 public class PageObjectUtilities {
     private WebDriver driver;
@@ -53,7 +56,7 @@ public class PageObjectUtilities {
     public WebElement getWebElementByName(Object page, String elementName) {
         WebElement element = null;
         try {
-            Field field = page.getClass().getDeclaredField (elementName);
+            Field field = page.getClass().getDeclaredField(elementName);
             field.setAccessible(true);
             element = (WebElement) field.get(page);
         } catch (NoSuchFieldException | IllegalAccessException e) {
