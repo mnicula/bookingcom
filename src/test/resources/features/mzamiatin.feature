@@ -5,7 +5,7 @@ Feature: accommodations
 
     Given user is on 'Home' page
     When user completes the 'locationField' field with 'Budapest' value
-    And user sets dates
+    And user selects '21' and '25' dates from 'Home' page
     And user clicks on 'searchButton'
     Then user is on 'AccommodationsSearchResults' page
     When user clicks on 'HotelName' link
@@ -31,6 +31,8 @@ Feature: accommodations
 #    And user clicks on 'Complete booking'
 #    And user clicks 'Close' in alert message
 #    Then user is on 'Confirmation' page
+
+#
 
 
   @mzamiatin @Test2
