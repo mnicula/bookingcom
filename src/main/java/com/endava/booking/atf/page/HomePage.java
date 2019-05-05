@@ -2,7 +2,6 @@ package com.endava.booking.atf.page;
 
 
 import com.endava.booking.atf.common.action.BasePage;
-import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -18,8 +17,6 @@ public class HomePage extends BasePage {
 
     @FindBy(xpath = "//div[@id='cross-product-bar']//a[2]")
     WebElement carRentals;
-    @FindBy (xpath = "//span[contains(text(),'Airport taxis')]")
-    public  WebElement airportTaxiButton;
     @FindBy(xpath = "//span[@class='header_name user_firstname ge-no-yellow-bg']")
     public WebElement yourAccountBlock;
     @FindBy(xpath = "//*[@id=\"b2indexPage\"]/div[13]/button")
