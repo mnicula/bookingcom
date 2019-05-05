@@ -2,6 +2,7 @@ package com.endava.booking.atf.page;
 
 
 import com.endava.booking.atf.common.action.BasePage;
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -35,7 +36,7 @@ public class HomePage extends BasePage {
     List < WebElement > dateTables;
     @FindBy(xpath = "//td[@class='bui-calendar__date']")
     List < WebElement > dates;
-    @FindBy(xpath = "//button[@data-sb-id='main']")
+    @FindBy(xpath = "//td[@class='bui-calendar__date']")
     private WebElement searchButton;
 
     @FindBy(xpath="//*[@id=\"footer_links\"]/div[3]/ul/li[5]/a")
