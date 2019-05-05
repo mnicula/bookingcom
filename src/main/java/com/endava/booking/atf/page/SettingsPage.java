@@ -1,7 +1,7 @@
 package com.endava.booking.atf.page;
 
 import com.endava.booking.atf.common.action.BasePage;
-import com.endava.booking.atf.pojo.CardDetailsPojo;
+//import com.endava.booking.atf.pojo.CardDetailsPojo;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -56,8 +56,8 @@ public class SettingsPage extends BasePage {
         dropdown2.selectByVisibleText ( expireYearValue );
     }
 
-    public void completeFields(CardDetailsPojo details) {
-        cardNumber.sendKeys ( details.getCardNumber () );
-        cardHolder.sendKeys ( details.getCardHolder () );
-    }
+//    public void completeFields(CardDetailsPojo details) {
+//        cardNumber.sendKeys ( details.getCardNumber () );
+//        cardHolder.sendKeys ( details.getCardHolder () );
+//    }
 }
