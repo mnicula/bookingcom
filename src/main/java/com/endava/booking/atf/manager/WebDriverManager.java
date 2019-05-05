@@ -55,8 +55,8 @@ public class WebDriverManager {
     }
 
     private void setImplicitWait() {
-        long implicityWait = FileReaderManager.getInstance().getConfigFileReader().getImplicitlyWait();
-        this.driver.manage().timeouts().implicitlyWait(implicityWait, TimeUnit.SECONDS);
+        long implicitlyWait = FileReaderManager.getInstance().getConfigFileReader().getImplicitlyWait();
+        this.driver.manage().timeouts().implicitlyWait(implicitlyWait, TimeUnit.SECONDS);
     }
 
     public void closeDriver() throws IOException {
