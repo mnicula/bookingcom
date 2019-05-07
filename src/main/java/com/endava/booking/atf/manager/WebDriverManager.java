@@ -45,8 +45,8 @@ public class WebDriverManager {
 
     public void goToHomePage() {
         String homeURL = FileReaderManager.getInstance().getConfigFileReader().getApplicationHomeURL();
-        //String language = FileReaderManager.getInstance().getConfigFileReader().getURLLanguage();
-        this.driver.navigate().to(homeURL);
+        String language = FileReaderManager.getInstance().getConfigFileReader().getURLLanguage();
+        this.driver.navigate().to(homeURL+"/index."+language+".html");
     }
 
     private void maximizeWindow() {
@@ -55,8 +55,8 @@ public class WebDriverManager {
     }
 
     private void setImplicitWait() {
-        long implicityWait = FileReaderManager.getInstance().getConfigFileReader().getImplicitlyWait();
-        this.driver.manage().timeouts().implicitlyWait(implicityWait, TimeUnit.SECONDS);
+        long implicitlyWait = FileReaderManager.getInstance().getConfigFileReader().getImplicitlyWait();
+        this.driver.manage().timeouts().implicitlyWait(implicitlyWait, TimeUnit.SECONDS);
     }
 
     public void closeDriver() throws IOException {
