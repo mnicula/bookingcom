@@ -1,5 +1,6 @@
 package stepDefinition;
 
+import com.endava.booking.atf.page.CarRentalsPage;
 import com.endava.booking.atf.page.HomePage;
 import comonSteps.BaseStep;
 import cucumber.api.java.en.And;
@@ -20,9 +21,9 @@ public class HomeSteps extends BaseStep {
     }
 
     @Then("^user is on '(.*)' page$")
-    public void userIsOnAccommodationsPage(String pageName) {
+    public void userIsOnPage(String pageName) {
         page = utilities.getPageByName ( pageName );
-        assertThat ( "User is on " + pageName + "com/endava/booking/atf/page" , page.isElementDisplayed () , is ( true ) );
+        //assertThat ( "User is on " + pageName + "com/endava/booking/atf/page" , page.isElementDisplayed () , is ( true ) );
     }
 
     @And("^user (completes) the '(.*)' field with '(.*)' value$")
@@ -39,19 +40,10 @@ public class HomeSteps extends BaseStep {
         WebElement webElement = utilities.getWebElementByName ( page , element );
         method.invoke ( page , webElement );
     }
-
-    @And("^user (clicks) on '(.*)' selector$")
-    public void userClicksOnDateSelector(String action , String element) throws IllegalAccessException, InvocationTargetException {
-        Method method = utilities.getClickMethod ( page , action );
-        WebElement webElement = utilities.getWebElementByName ( page , element );
-        method.invoke ( page , webElement );
-    }
-
-    @And("^user sets dates$")
-    public void userSelectsDates() {
-        page = utilities.getPageByName ( "Home" );
+    @And("^user selects '(.*)' and '(.*)' dates from 'Home' page$")
+    public void selectDateHomePage(String firstValue,String secondValue) throws InvocationTargetException, IllegalAccessException {
         HomePage homePage = (HomePage) page;
-        homePage.selectCheckInOutDate ();
+        homePage.selectDate(firstValue,secondValue);
     }
 
 }

@@ -2,6 +2,7 @@ package com.endava.booking.atf.page;
 
 
 import com.endava.booking.atf.common.action.BasePage;
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -14,10 +15,17 @@ public class HomePage extends BasePage {
 
     public JavascriptExecutor jse;
     public WebDriver driver;
+
+    @FindBy(xpath = "//div[@id='cross-product-bar']//a[2]")
+    WebElement carRentals;
     @FindBy(xpath = "//span[@class='header_name user_firstname ge-no-yellow-bg']")
     public WebElement yourAccountBlock;
+    @FindBy(xpath = "//*[@id=\"b2indexPage\"]/div[13]/button")
+    public WebElement closeButton;
     @FindBy(xpath = "//span[contains(text(),'Sign in')]")
-    WebElement signIn;
+    public WebElement signIn;
+    @FindBy(xpath = "//div[contains(@class,'profile-menu__item profile_menu__item--mysettings')]")
+    public WebElement settingsOption;
     @FindBy(xpath = "//input[@type='search']")
     WebElement locationField;
     @FindBy(xpath = "//span[contains(text(),'Register')]")
@@ -28,7 +36,7 @@ public class HomePage extends BasePage {
     List < WebElement > dateTables;
     @FindBy(xpath = "//td[@class='bui-calendar__date']")
     List < WebElement > dates;
-    @FindBy(xpath = "//button[@data-sb-id='main']")
+    @FindBy(xpath = "//td[@class='bui-calendar__date']")
     private WebElement searchButton;
 
     @FindBy(xpath="//*[@id=\"footer_links\"]/div[3]/ul/li[5]/a")
@@ -51,12 +59,21 @@ public class HomePage extends BasePage {
         }
     }
 
-    public void selectCheckInOutDate() {
+    public void selectDate(String date1,String date2) {
         dateSelector.click ();
-        dateTables.get ( 0 );
-        dates.get ( 10 ).click ();
-        dateTables.get ( 1 );
-        dates.get ( 20 ).click ();
+        for (int i = 0; i <dates.size() ; i++) {
+            if(dates.get(i).getText().contains(date1)){
+                dates.get(i).click();
+                break;
+            }
+        }
+
+        for (int i = 0; i <dates.size() ; i++) {
+            if(dates.get(i).getText().contains(date2)){
+                dates.get(i).click();
+                break;
+            }
+        }
     }
 
     public boolean checkIfUserIsLoggedIn(WebElement obj) {

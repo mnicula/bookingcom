@@ -35,6 +35,13 @@ public class ConfigFileReader {
         }
     }
 
+    public String getURLLanguage() {
+        String language = properties.getProperty("language");
+        if (language != null) return language;
+        else
+            throw new RuntimeException("Application language not specified in the " + PROPERTY_FILE_PATH + " file for the Key:langauge");
+    }
+
     public String getApplicationHomeURL() {
         String homeURL = properties.getProperty("homeURL");
         if (homeURL != null) return homeURL;
@@ -42,7 +49,7 @@ public class ConfigFileReader {
             throw new RuntimeException("Application Url not specified in the " + PROPERTY_FILE_PATH + " file for the Key:homeURL");
     }
 
-    public Browser getBrower() {
+    public Browser getBrowser() {
         String browserName = properties.getProperty("browser");
         switch (browserName.toLowerCase()) {
             case "chrome":
