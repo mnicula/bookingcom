@@ -28,11 +28,9 @@ public class HomeSteps extends BaseStep {
     @And("^user (completes) the '(.*)' field with '(.*)' value$")
     public void userCompleteTheField(String action , String element , String valueToComplete) throws IllegalAccessException, InvocationTargetException, InterruptedException {
         Method method = utilities.getWriteMethod ( page , action );
-
         WebElement webElement = utilities.getWebElementByName ( page , element );
         webElement.clear ();
         method.invoke ( page , webElement , valueToComplete );
-
     }
 
     @And("^user (clicks) on '(.*)'$")

@@ -31,6 +31,10 @@ public class HomePage extends BasePage {
     @FindBy(xpath = "//button[@data-sb-id='main']")
     private WebElement searchButton;
 
+    @FindBy(xpath="//*[@id=\"footer_links\"]/div[3]/ul/li[5]/a")
+    WebElement lnk_TravelCommunity;
+
+
     public HomePage(WebDriver driver) {
         super ( driver );
         jse = (JavascriptExecutor) driver;
