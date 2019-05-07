@@ -75,3 +75,30 @@ Feature: booking
     Examples:
       | email                | password  |
       | test1234@test123.com | 123123123 |
+
+  @positive @searchTaxi @aserbu @5
+  Scenario Outline: User search a airport taxi
+#    Given user is on 'Home' page
+#    When user clicks on 'signIn'
+#    And user is on 'Login' page
+#    And  user completes the 'emailSignIn' field with '<email>' value
+#    And user clicks on 'nextSignInButton'
+#    And  user completes the 'passwordSignIn' field with '<password>' value
+#    And user clicks on 'signInButton'
+#    Then user is authenticated
+    And user is on 'Home' page
+    And user clicks on 'airportTaxiButton' taxi button
+    Then user is on 'AirportTaxi' page
+    When user completes the 'pickUpLocationTaxi' field with 'Chisinau ' value
+    And user clicks on 'pickUpTaxiLocation'
+    When user completes the 'dropOffLocationTaxi' field with 'Jolly Alon ' value
+    And user clicks on 'dropOffTaxiLocation'
+    And user clicks on 'searchTaxiButton'
+    Then user clicks on 'bookTaxiButton'
+    Then user is on 'TaxiBooking' page
+    And user enters personal info for taxi booking
+    Then user clicks on 'continueToBookTaxi'
+    And user enters payment details for taxi booking
+    Examples:
+      | email                | password  |
+      | test1234@test123.com | 123123123 |

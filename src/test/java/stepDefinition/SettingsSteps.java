@@ -25,7 +25,7 @@ public class SettingsSteps extends BaseStep {
     public void userUserIsRegistered() {
         page = utilities.getPageByName ( "Settings" );
         SettingsPage settingsPage = (SettingsPage) page;
-        assertThat ( "User is registered" , settingsPage.receives ( settingsPage.successfullyAddedCardMsg ) , is ( "Your changes have been saved" ) );
+        assertThat ( "Credit card is added" , settingsPage.receives ( settingsPage.successfullyAddedCardMsg ) , is ( "Your changes have been saved" ) );
     }
 
     @Then("^user is warned that saving card is not possible$")
