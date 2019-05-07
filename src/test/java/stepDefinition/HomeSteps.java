@@ -32,7 +32,6 @@ public class HomeSteps extends BaseStep {
         WebElement webElement = utilities.getWebElementByName ( page , element );
         webElement.clear ();
         method.invoke ( page , webElement , valueToComplete );
-
     }
 
     @And("^user (clicks) on '(.*)'$")

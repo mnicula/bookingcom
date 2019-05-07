@@ -38,6 +38,8 @@ public class HomePage extends BasePage {
     List < WebElement > dates;
     @FindBy(xpath = "//td[@class='bui-calendar__date']")
     private WebElement searchButton;
+    @FindBy(xpath="//*[@id=\"footer_links\"]/div[3]/ul/li[5]/a")
+    WebElement lnk_TravelCommunity;
 
 
     public HomePage(WebDriver driver) {
