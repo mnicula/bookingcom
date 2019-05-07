@@ -15,7 +15,7 @@ public class WebDriverManager {
     private static final String DRIVER_PATH = com.endava.booking.atf.manager.FileReaderManager.getInstance().getConfigFileReader().getDriverPath();
 
     public WebDriverManager() {
-        browser = com.endava.booking.atf.manager.FileReaderManager.getInstance().getConfigFileReader().getBrower();
+        browser = com.endava.booking.atf.manager.FileReaderManager.getInstance().getConfigFileReader().getBrowser();
     }
 
     public WebDriver getDriver() {
@@ -29,6 +29,12 @@ public class WebDriverManager {
                 System.setProperty(Browser.CHROME.getDriverProperty(), DRIVER_PATH + "chromedriver.exe");
                 driver = new ChromeDriver();
                 break;
+            case INTERNETEXPLORER:
+                DesiredCapabilities defaultZoom = DesiredCapabilities.internetExplorer();
+                defaultZoom.setCapability("ignoreZoomSetting", true);
+                System.setProperty(Browser.INTERNETEXPLORER.getDriverProperty(), DRIVER_PATH + "IEDriverServer.exe");
+                driver = new InternetExplorerDriver(defaultZoom);
+                break;
         }
         goToHomePage();
         maximizeWindow();
@@ -40,8 +46,8 @@ public class WebDriverManager {
 
     public void goToHomePage() {
         String homeURL = FileReaderManager.getInstance().getConfigFileReader().getApplicationHomeURL();
-        //String language = FileReaderManager.getInstance().getConfigFileReader().getURLLanguage();
-        this.driver.navigate().to(homeURL);
+        String language = FileReaderManager.getInstance().getConfigFileReader().getURLLanguage();
+        this.driver.navigate().to(homeURL+"/index."+language+".html");
     }
 
     private void maximizeWindow() {
@@ -50,8 +56,8 @@ public class WebDriverManager {
     }
 
     private void setImplicitWait() {
-        long implicityWait = FileReaderManager.getInstance().getConfigFileReader().getImplicitlyWait();
-        this.driver.manage().timeouts().implicitlyWait(implicityWait, TimeUnit.SECONDS);
+        long implicitlyWait = FileReaderManager.getInstance().getConfigFileReader().getImplicitlyWait();
+        this.driver.manage().timeouts().implicitlyWait(implicitlyWait, TimeUnit.SECONDS);
     }
 
     public void closeDriver() throws IOException {
@@ -59,9 +65,7 @@ public class WebDriverManager {
         try {
             driver.quit();
         } catch (Exception e) {
-            Runtime.getRuntime().exec("taskkill /F /IM plugin-container.exe");
-            Runtime.getRuntime().exec("taskkill /F /IM firefox.exe");
-
+            e.printStackTrace();
         }
     }
 
