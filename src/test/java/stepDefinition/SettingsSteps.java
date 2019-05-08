@@ -21,6 +21,7 @@ public class SettingsSteps extends BaseStep {
         settingsPage.completeCardData ( valueToComplete , expiryMonthValue , expireYearValue , creditCardNumber , creditCardHolder );
     }
 
+
     @Then("^credit card is added$")
     public void userUserIsRegistered() {
         page = utilities.getPageByName ( "Settings" );
