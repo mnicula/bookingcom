@@ -41,6 +41,7 @@ public class HomeSteps extends BaseStep {
         Log.info ( MessageFormat.format ( "User {0} on {1} ." , action , element ) );
     }
 
+
     @And("^user selects '(.*)' and '(.*)' dates from 'Home' page$")
     public void selectDateHomePage(String firstValue , String secondValue) throws InvocationTargetException, IllegalAccessException {
         HomePage homePage = (HomePage) page;
