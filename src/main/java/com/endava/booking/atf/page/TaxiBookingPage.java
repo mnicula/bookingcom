@@ -1,7 +1,6 @@
 package com.endava.booking.atf.page;
 
 import com.endava.booking.atf.common.action.BasePage;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -10,6 +9,8 @@ import org.openqa.selenium.support.ui.Select;
 public class TaxiBookingPage extends BasePage {
 
     public WebDriver driver;
+    @FindBy(xpath = "//span[contains(text(),'Sorry but we were unable to take your payment')]")
+    public WebElement warningBookingTaxiMsg;
     @FindBy(xpath = "//select[@id='title']")
     WebElement title;
     @FindBy(xpath = "//input[@id='firstname']")
@@ -27,14 +28,19 @@ public class TaxiBookingPage extends BasePage {
     @FindBy(xpath = "//span[@class='gb-o-btn__content']")
     WebElement continueToBookTaxi;
     @FindBy(xpath = "//div[@id='card-number']")
+    WebElement cardNumberLabel;
+    @FindBy(xpath = "//input[@id='credit-card-number']")
     WebElement cardNumber;
-    @FindBy(xpath = "//div[@id='expiration-date']")
+    @FindBy(xpath = "//input[@id='expiration']")
     WebElement expiryDate;
-    @FindBy(xpath = "//div[@id='cvv']")
+    @FindBy(xpath = "//input[@id='cvv']")
     WebElement cardCVV;
+    @FindBy(xpath = "//span[contains(@class,'gb-o-btn__content')]")
+    WebElement bookNowTaxi;
 
     public TaxiBookingPage(WebDriver driver) {
         super ( driver );
+        this.driver = driver;
     }
 
 
@@ -61,8 +67,14 @@ public class TaxiBookingPage extends BasePage {
     public void enterPaymentDetailsForTaxi() {
         driver.switchTo ().frame ( "braintree-hosted-field-number" );
         cardNumber.sendKeys ( "4111111111111111" );
+        driver.switchTo ().defaultContent ();
+        driver.switchTo ().frame ( "braintree-hosted-field-expirationDate" );
         expiryDate.sendKeys ( "02/20" );
+        driver.switchTo ().defaultContent ();
+        driver.switchTo ().frame ( "braintree-hosted-field-cvv" );
         cardCVV.sendKeys ( "123" );
         driver.switchTo ().defaultContent ();
+
+
     }
 }
