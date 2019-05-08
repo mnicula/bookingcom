@@ -39,8 +39,9 @@ public class HomeSteps extends BaseStep {
         Method method = utilities.getClickMethod ( page , action );
         WebElement webElement = utilities.getWebElementByName ( page , element );
         method.invoke ( page , webElement );
-
     }
+
+
     @And("^user selects '(.*)' and '(.*)' dates from 'Home' page$")
     public void selectDateHomePage(String firstValue,String secondValue) throws InvocationTargetException, IllegalAccessException {
         HomePage homePage = (HomePage) page;

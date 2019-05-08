@@ -1,7 +1,9 @@
 package stepDefinition;
 
+import com.endava.booking.atf.page.AccommodationsSearchResultsPage;
 import comonSteps.BaseStep;
 import cucumber.api.java.en.And;
+import cucumber.api.java.en.When;
 import org.openqa.selenium.WebElement;
 import testContext.TestContext;
 
@@ -14,13 +16,12 @@ public class AccommodationsSearchResultsSteps extends BaseStep {
     }
 
 
-    @And("^user (clicks) on '(.*)' link$")
+    @When("^user (clicks) on first '(.*)' link$")
     public void userClicksOnButton(String action , String element) throws IllegalAccessException, InvocationTargetException {
-        Method method = utilities.getClickMethod ( page , action );
-        WebElement webElement = utilities.getWebElementByName ( page , element );
-        method.invoke ( page , webElement );
+        page = utilities.getPageByName ( "AccommodationsSearchResults" );
+        AccommodationsSearchResultsPage accommodationsSearchResultsPage = (AccommodationsSearchResultsPage) page;
+        accommodationsSearchResultsPage.getHotelName ( 0 );
         utilities.switchTab(1);
-
     }
 
 

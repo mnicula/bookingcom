@@ -1,7 +1,7 @@
 package stepDefinition;
 
 import com.endava.booking.atf.page.SettingsPage;
-import com.endava.booking.atf.pojo.CardDetailsPojo;
+//import com.endava.booking.atf.pojo.CardDetailsPojo;
 import comonSteps.BaseStep;
 import cucumber.api.DataTable;
 import cucumber.api.java.en.And;
@@ -25,13 +25,13 @@ public class SettingsSteps extends BaseStep {
         settingsPage.selectCardType ( valueToComplete , expiryMonthValue , expireYearValue );
     }
 
-    @And("^user completes the '(.*)' form with following data$")
-    public void userCompletesTheCheckoutFormWithFollowingData(String pageName , DataTable details) {
-        List < CardDetailsPojo > cardDetails = details.asList ( CardDetailsPojo.class );
-        page = utilities.getPageByName ( pageName );
-        SettingsPage settingsPage = (SettingsPage) page;
-        settingsPage.completeFields ( cardDetails.get ( 0 ) );
-    }
+//    @And("^user completes the '(.*)' form with following data$")
+//    public void userCompletesTheCheckoutFormWithFollowingData(String pageName , DataTable details) {
+//        List < CardDetailsPojo > cardDetails = details.asList ( CardDetailsPojo.class );
+//        page = utilities.getPageByName ( pageName );
+//        SettingsPage settingsPage = (SettingsPage) page;
+//        settingsPage.completeFields ( cardDetails.get ( 0 ) );
+//    }
 
     @Then("^credit card is added$")
     public void userUserIsRegistered() {
