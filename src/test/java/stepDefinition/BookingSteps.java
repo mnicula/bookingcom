@@ -1,5 +1,6 @@
 package stepDefinition;
 
+
 import com.endava.booking.atf.page.BookingPage;
 import comonSteps.BaseStep;
 import cucumber.api.java.en.And;
@@ -17,6 +18,7 @@ public class BookingSteps extends BaseStep {
         BookingPage bookingPage = (BookingPage) page;
         bookingPage.selectRooms(value);
     }
+
 
 
 

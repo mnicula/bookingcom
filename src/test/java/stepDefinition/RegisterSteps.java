@@ -38,7 +38,7 @@ public class RegisterSteps extends BaseStep {
     public void userIsWarnedAboutDuplicate() {
         page = utilities.getPageByName ( "Register" );
         RegisterPage registerPage = (RegisterPage) page;
-        assertThat ( "User is warned about duplicate" , registerPage.receives ( registerPage.errorMsgMail ) , is ( "You already have a Booking.com account registered to this email: testATF01@test.com. You can sign in here." ) );
+        assertThat ( "User is warned about duplicate" , registerPage.receives ( registerPage.errorMsgMail ) , is ( "You already have a Booking.com account registered to this email: testATF01@test.com. You can sign in directly." ) );
     }
 
     @When("^user fills in different passwords$")
@@ -54,6 +54,6 @@ public class RegisterSteps extends BaseStep {
     public void userIsWarnedAboutPasswordMismatch() {
         page = utilities.getPageByName ( "Register" );
         RegisterPage registerPage = (RegisterPage) page;
-        assertThat ( "User is warned about password mismatch" , registerPage.receives ( registerPage.errorMsgPassword ) , is ( "The passwords you entered didn't match – try again" ) );
+        assertThat ( "User is warned about password mismatch" , registerPage.receives ( registerPage.errorMsgPassword ) , is ( "The passwords you entered did not match, please try again" ) );
     }
 }
