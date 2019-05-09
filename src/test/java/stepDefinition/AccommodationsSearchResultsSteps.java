@@ -28,22 +28,4 @@ public class AccommodationsSearchResultsSteps extends BaseStep {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }

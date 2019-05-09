@@ -38,6 +38,8 @@ public class HomePage extends BasePage {
     private WebElement searchButton;
     @FindBy (xpath = "//div[contains(@class,'profile-menu__item profile_menu__item--mysettings')]")
     public WebElement settingsOption;
+    @FindBy (xpath = "//span[contains(text(),'View deals')]")
+    public WebElement viewDealsOnGreatGetaway;
 
 
 

@@ -7,20 +7,20 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class SecureBooking2Page extends BasePage {
+public class GetawayDealsPage extends BasePage {
 
     public JavascriptExecutor jse;
     public WebDriver driver;
 
-    @FindBy(xpath = "//strong[contains(text(),'Enter your details')]")
-    WebElement enterYourDetails;
+    @FindBy(xpath = "//h1[contains(text(),'The Great Getaway Sale')]")
+    WebElement greatGetawaySaleHeader;
 
-    @FindBy(xpath = "")
-    WebElement firstName;
+    @FindBy(xpath = "//h1[contains(text(),'Rome')]")
+    WebElement romeCardImage;
 
 
 
-    public SecureBooking2Page(WebDriver driver) {
+    public GetawayDealsPage(WebDriver driver) {
         super ( driver );
         jse = (JavascriptExecutor) driver;
         PageFactory.initElements ( driver , this );
@@ -28,15 +28,16 @@ public class SecureBooking2Page extends BasePage {
     }
 
 
-
     @Override
     public boolean isElementDisplayed() {
         try {
-            return this.enterYourDetails.isDisplayed();
+            return this.greatGetawaySaleHeader.isDisplayed();
         } catch (Exception e){
             return false;
         }
     }
+
+
 
 
 
