@@ -6,6 +6,7 @@ import comonSteps.BaseStep;
 import cucumber.api.java.en.And;
 import testContext.TestContext;
 
+
 public class BookingSteps extends BaseStep {
     public BookingSteps(TestContext context) {
         super(context);
@@ -18,8 +19,6 @@ public class BookingSteps extends BaseStep {
         BookingPage bookingPage = (BookingPage) page;
         bookingPage.selectRooms(value);
     }
-
-
 
 
 }

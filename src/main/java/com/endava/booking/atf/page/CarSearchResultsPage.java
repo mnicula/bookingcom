@@ -7,7 +7,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,6 +26,23 @@ public class CarSearchResultsPage extends BasePage {
     List<WebElement> chooseButton;
     @FindBy(xpath = "/button[@class='carResultRow_OfferInfo-btn-primary']")
     List<WebElement> chooseButton2;
+    @FindBy(xpath = "//a[contains(text(),'later')]")
+    List<WebElement> saveForLater;
+    @FindBy(xpath="//select[@id='quote_title']")
+    WebElement titleSelect;
+    @FindBy(xpath="//input[@id='f_name_input']")
+    WebElement firstNamePopUp;
+    @FindBy(xpath="//input[@id='surname_input']")
+    WebElement surnamePopUp;
+    @FindBy(xpath="//input[@id='email_input']")
+    WebElement emailPopUp;
+    @FindBy(xpath="//input[@id='phone_input']")
+    WebElement phoneNumer;
+    @FindBy(xpath="//a[@class='cta']")
+    WebElement emailDetails;
+    @FindBy(xpath="//span[@class='reference-number']")
+    static WebElement referenceNumber;
+
 
     public CarSearchResultsPage(WebDriver driver) {
         super(driver);
@@ -68,12 +84,36 @@ public class CarSearchResultsPage extends BasePage {
     }
 
     public void clickChooseCar(int carNr) {
-        try { jse.executeScript("arguments[0].click();", chooseButton.get(carNr));
+        try {
+            jse.executeScript("arguments[0].click();", chooseButton.get(carNr));
+        } catch (IndexOutOfBoundsException e) {
+            e.printStackTrace();
         }
-        catch (IndexOutOfBoundsException e) { e.printStackTrace();}
-
-
     }
+
+    public void clickSaveForLater(int carNr) {
+        try {
+            jse.executeScript("arguments[0].click();", saveForLater.get(carNr));
+        } catch (IndexOutOfBoundsException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void clickEmailDetails(){
+        emailDetails.click();
+    }
+
+    public void completePersonalInfo(String title, String firstName, String surname, String email, String phone)  {
+        Select select = new Select(titleSelect);
+        select.selectByValue(title);
+        firstNamePopUp.sendKeys(firstName);
+        surnamePopUp.sendKeys(surname);
+        emailPopUp.sendKeys(email);
+        phoneNumer.sendKeys(phone);
+    }
+
+
+
 }
 
 

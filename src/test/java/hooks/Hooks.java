@@ -12,7 +12,6 @@ public class Hooks {
     TestContext testContext;
     Scenario scenario;
 
-
     public Hooks(TestContext context) {
         testContext = context;
     }
@@ -20,18 +19,16 @@ public class Hooks {
     @Before
     public void before(Scenario scenario) {
         this.scenario = scenario;
-        Log.info ( "Scenario name: " + scenario.getName () );
-        Log.startLog ( "Test is Starting!" );
-
-
+        Log.info("Scenario name: " + scenario.getName());
+        Log.startLog("Test is Starting!");
     }
 
 
-    @After
-    public void AfterSteps() throws IOException {
-        testContext.getWebDriverManager ().closeDriver ();
-        Log.endLog ( "Test is ending!" );
-    }
+//    @After
+//    public void AfterSteps() throws IOException {
+//        testContext.getWebDriverManager().closeDriver();
+//        Log.endLog("Test is ending!");
+//    }
 
 
 }
