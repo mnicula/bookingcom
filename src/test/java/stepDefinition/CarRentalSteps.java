@@ -22,7 +22,7 @@ public class CarRentalSteps extends BaseStep {
         Method method = utilities.getClickMethod(page, action);
         WebElement webElement = wait.until(ExpectedConditions.elementToBeClickable(utilities.getWebElementByName(page, element)));
         method.invoke(page, webElement);
-        Thread.sleep(5000);
+        //Thread.sleep(5000);
         utilities.switchTab(1);
     }
 

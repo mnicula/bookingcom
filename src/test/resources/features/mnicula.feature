@@ -27,3 +27,24 @@ Feature:booking
       And user clicks on BookNow button
       And user enters payment details
       And user clicks on 'BookNow'
+      Then user is warned that payment was not processed
+
+      @saveForLater @mnicula
+        Scenario Outline: User saves for later a car rental
+        Given user is on 'Home' page
+        And user clicks on 'carRentals' button
+        Then user is on 'CarRentals' page
+        When user completes the 'pickUpLocation' field with 'Heathrow Airport ' value
+        And user clicks on 'firstResult'
+        And user clicks on 'searchButton'
+        Then user is redirected on 'CarSearchResults' Page
+        When user clicks on save for later
+        And user completes personalinfo with '<title>' , '<firstName>' , '<surname>', '<email>' and '<phone>'
+        And user clicks on 'emailDetails' link
+        And user navigates to mail
+        And user opens recent email
+       # Then email contains searched car name
+
+        Examples:
+          | title | firstName  | surname       | email                        | phone         |
+          | Mr    | TEST       | AUTOMATION    | bookingauto@mailinator.com   | +37369695694  |
