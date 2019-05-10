@@ -50,6 +50,7 @@ public class PageObjectUtilities {
         return method;
     }
 
+
     public WebElement getWebElementByName(Object page, String elementName) {
         WebElement element = null;
         try {
@@ -62,9 +63,9 @@ public class PageObjectUtilities {
         return element;
     }
 
-    public void switchTab(int tabNr) {
-        ArrayList<String> tabs = new ArrayList<>();
-        tabs.addAll(driver.getWindowHandles());
+
+    public void switchTab(int tabNr){
+        ArrayList<String> tabs = new ArrayList<>(driver.getWindowHandles());
         driver.switchTo().window(tabs.get(tabNr));
     }
 

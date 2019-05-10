@@ -1,23 +1,23 @@
 Feature: accommodations
 
-  @mzamiatin @Test1
+  @accommodations1
   Scenario: User searches and books a room
 
     Given user is on 'Home' page
     When user completes the 'locationField' field with 'Budapest' value
     And user selects '21' and '25' dates from 'Home' page
-#    And user clicks on 'searchButton'
-#    Then user is on 'SearchResults' page
-#    When user clicks on ''HotelName' link'
-#    Then user is on 'Booking' page
-#    When user clicks on 'Quantity' dropdown
-#    And user clicks on '1'
-#    And user clicks on 'I'll reserve'
+    And user clicks on 'searchButton'
+    Then user is on 'AccommodationsSearchResults' page
+    When user clicks on first 'HotelName' link
+    Then user is on 'Booking' page
+    And user selects '1' room
+    And user clicks on 'illreserveButton'
+    Then user is on 'SecureBooking2' page
 #    And user clicks 'Close' in alert message
-#    And user completes the 'Last Name' field with 'Chatterley' value
-#    And user completes the 'Email Address' field with 'morceaug@gmail.com' value
-#    And user completes the 'Confirm Email Address' field with 'morceaug@gmail.com' value
-#    And user clicks on 'Next: Final Details'
+#    And user completes the 'lastName' field with 'Chatterley' value
+#    And user completes the 'emailAddress' field with 'morceaug@gmail.com' value
+#    And user completes the 'emailAddressConfirm' field with 'morceaug@gmail.com' value
+#    And user clicks on 'nextFinalDetailsButton'
 #    And user clicks 'Close' in alert message
 #    And user completes the 'Address' field with 'Green avenue, 19' value
 #    And user completes the 'City' field with 'Chisinau' value
@@ -32,8 +32,10 @@ Feature: accommodations
 #    And user clicks 'Close' in alert message
 #    Then user is on 'Confirmation' page
 
+#
 
-  @mzamiatin @Test2
+
+  @accommodations2
   Scenario: User clicks on 'Great Getaway Sale' banner image to see the deals with summer season discounts
 
     Given user is on 'Home' page

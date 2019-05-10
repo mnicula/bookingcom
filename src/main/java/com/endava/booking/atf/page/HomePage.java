@@ -16,6 +16,8 @@ public class HomePage extends BasePage {
     public JavascriptExecutor jse;
     public WebDriver driver;
 
+    @FindBy (xpath = "//span[contains(text(),'Airport taxis')]")
+    public  WebElement airportTaxiButton;
     @FindBy(xpath = "//div[@id='cross-product-bar']//a[2]")
     WebElement carRentals;
     @FindBy(xpath = "//span[@class='header_name user_firstname ge-no-yellow-bg']")
@@ -23,7 +25,9 @@ public class HomePage extends BasePage {
     @FindBy(xpath = "//*[@id=\"b2indexPage\"]/div[13]/button")
     public WebElement closeButton;
     @FindBy(xpath = "//span[contains(text(),'Sign in')]")
-    WebElement signIn;
+    public WebElement signIn;
+    @FindBy(xpath = "//div[contains(@class,'profile-menu__item profile_menu__item--mysettings')]")
+    public WebElement settingsOption;
     @FindBy(xpath = "//input[@type='search']")
     WebElement locationField;
     @FindBy(xpath = "//span[contains(text(),'Register')]")
@@ -34,11 +38,11 @@ public class HomePage extends BasePage {
     List < WebElement > dateTables;
     @FindBy(xpath = "//td[@class='bui-calendar__date']")
     List < WebElement > dates;
-    @FindBy(xpath = "//td[@class='bui-calendar__date']")
+    @FindBy(xpath = "//div[contains(@class,'sb-searchbox-submit-col -submit-button')]//span[contains(text(),'Search')]")
     private WebElement searchButton;
-    @FindBy (xpath = "//div[contains(@class,'profile-menu__item profile_menu__item--mysettings')]")
-    public WebElement settingsOption;
-
+    @FindBy(xpath="//*[@id=\"footer_links\"]/div[3]/ul/li[5]/a")
+    WebElement lnk_TravelCommunity;
+   
 
 
     public HomePage(WebDriver driver) {
