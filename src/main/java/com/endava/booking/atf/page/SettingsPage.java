@@ -57,5 +57,4 @@ public class SettingsPage extends BasePage {
         cardHolder.sendKeys ( creditCardHolder );
     }
 
-
 }

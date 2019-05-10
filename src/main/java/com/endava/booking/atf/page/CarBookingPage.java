@@ -34,6 +34,8 @@ public class CarBookingPage extends BasePage {
     WebElement cardCVV2;
     @FindBy(xpath="//a[@id='pa-iframe']")
     WebElement BookNow;
+    @FindBy(xpath="//h2[@class='display-title']")
+    public WebElement errorMessage;
 
     public JavascriptExecutor jse;
     public WebDriver driver;
