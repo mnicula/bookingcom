@@ -6,7 +6,7 @@ import org.junit.runner.RunWith;
 @RunWith(Cucumber.class)
 @CucumberOptions(
 
-        tags = {"@saveForLater"},//scenarios to run
+        tags = {""},//scenarios to run
         glue = {"hooks" , "stepDefinition"},
         plugin = { "html:target/cucumber-reports",
                 "pretty",
