@@ -7,6 +7,7 @@ import cucumber.api.java.en.When;
 import testContext.TestContext;
 
 import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 
 public class AccommodationsSearchResultsSteps extends BaseStep {
     public AccommodationsSearchResultsSteps(TestContext context) {
@@ -22,13 +23,23 @@ public class AccommodationsSearchResultsSteps extends BaseStep {
         utilities.switchTab(1);
     }
 
-    @When("^user filters the deals by clicking a button in the search table$")
-    public void ScrollDownAndPushButton() throws InterruptedException {
-        page = utilities.getPageByName ( "AccommodationsSearchResults" );
-        AccommodationsSearchResultsPage accommodationsSearchResultsPage = (AccommodationsSearchResultsPage) page;
-        accommodationsSearchResultsPage.FilterDealsByPressingButton();
 
-    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

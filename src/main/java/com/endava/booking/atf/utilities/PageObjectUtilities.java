@@ -3,7 +3,6 @@ package com.endava.booking.atf.utilities;
 import com.endava.booking.atf.common.action.BasePage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
@@ -65,10 +64,8 @@ public class PageObjectUtilities {
     }
 
 
-
-    public void switchTab(int tabNr) {
-        ArrayList<String> tabs = new ArrayList<>();
-        tabs.addAll(driver.getWindowHandles());
+    public void switchTab(int tabNr){
+        ArrayList<String> tabs = new ArrayList<>(driver.getWindowHandles());
         driver.switchTo().window(tabs.get(tabNr));
     }
 
