@@ -5,6 +5,7 @@ import comonSteps.BaseStep;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
 import testContext.TestContext;
 
 import java.lang.reflect.InvocationTargetException;
@@ -21,8 +22,10 @@ public class HomeSteps extends BaseStep {
 
     @Then("^user is on '(.*)' page$")
     public void userIsOnPage(String pageName) {
-        page = utilities.getPageByName(pageName);
-        assertThat("User is on " + pageName + "com/endava/booking/atf/page", page.isElementDisplayed(), is(true));
+         page = utilities.getPageByName ( pageName );
+         assertThat ( "User is on " + pageName + "com/endava/booking/atf/page" , page.isElementDisplayed () , is ( true ) );
+
+  
     }
 
     @And("^user (completes) the '(.*)' field with '(.*)' value$")

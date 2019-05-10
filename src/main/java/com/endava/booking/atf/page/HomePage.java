@@ -45,6 +45,7 @@ public class HomePage extends BasePage {
     @FindBy (xpath = "//span[contains(text(),'View deals')]")
     public WebElement viewDealsOnGreatGetaway;
 
+
     @FindBy(xpath="//*[@id=\"footer_links\"]/div[3]/ul/li[5]/a")
     WebElement lnk_TravelCommunity;
 
