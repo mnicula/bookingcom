@@ -29,7 +29,7 @@ public class CarRentalsPage extends BasePage {
     List<WebElement> dates;
     @FindBy(xpath = "//div[contains(@class,'sb-searchbox-submit-col -submit-button')]//button")
     WebElement searchButton;
-    @FindBy(xpath = "//ul[contains(@class,'c-autocomplete__list sb-autocomplete__list -visible')]//li")
+    @FindBy(xpath = "//ul[@class='c-autocomplete__list sb-autocomplete__list -visible']//li[@data-i='0']")
     WebElement firstResult;
 
     public CarRentalsPage(WebDriver driver) {

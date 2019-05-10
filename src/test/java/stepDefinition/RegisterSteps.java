@@ -1,7 +1,6 @@
 package stepDefinition;
 
 import com.endava.booking.atf.page.RegisterPage;
-import com.endava.booking.atf.utilities.Log;
 import comonSteps.BaseStep;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;

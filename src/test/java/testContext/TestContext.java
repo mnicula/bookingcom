@@ -28,7 +28,4 @@ public class TestContext {
         return wait;
     }
 
-    public boolean getFlag() {
-        return flag;
-    }
 }
