@@ -1,7 +1,6 @@
 package stepDefinition;
 
 import com.endava.booking.atf.page.RegisterPage;
-import com.endava.booking.atf.utilities.Log;
 import comonSteps.BaseStep;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
@@ -41,7 +40,6 @@ public class RegisterSteps extends BaseStep {
         page = utilities.getPageByName("Register");
         RegisterPage registerPage = (RegisterPage) page;
         assertThat ( "User is warned about duplicate" , registerPage.receives ( registerPage.errorMsgMail ) , is ( "You already have a Booking.com account registered to this email: testATF01@test.com. You can sign in directly." ) );
-        Log.info ( MessageFormat.format ( "User is warned about dublicate mail: {0}" , registerPage.errorMsgMail ) );
 
        
 
