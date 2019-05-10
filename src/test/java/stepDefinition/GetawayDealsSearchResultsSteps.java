@@ -14,8 +14,8 @@ public class GetawayDealsSearchResultsSteps extends BaseStep {
         super(context);
     }
 
-    @When("^user filters the deals by criteria in the filter section$")
-    public void ScrollDownAndCheckFilterBoxes() {
+    @When("^user filters the deals with checkboxes in the filter section$")
+    public void ScrollDownAndFilterDeals() {
         page = utilities.getPageByName("GetawayDealsSearchResults");
         GetawayDealsSearchResultsPage getawayDealsSearchResultsPage = (GetawayDealsSearchResultsPage) page;
         getawayDealsSearchResultsPage.SelectFilterCriteria();
