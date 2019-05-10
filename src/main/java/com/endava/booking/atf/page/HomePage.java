@@ -2,7 +2,6 @@ package com.endava.booking.atf.page;
 
 
 import com.endava.booking.atf.common.action.BasePage;
-import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -26,6 +25,8 @@ public class HomePage extends BasePage {
     public WebElement closeButton;
     @FindBy(xpath = "//span[contains(text(),'Sign in')]")
     public WebElement signIn;
+    @FindBy(xpath = "//ul[@class='ge_challenge_roadtrip small_challenge u-clearfix']")
+    public WebElement giftChallenge;
     @FindBy(xpath = "//div[contains(@class,'profile-menu__item profile_menu__item--mysettings')]")
     public WebElement settingsOption;
     @FindBy(xpath = "//input[@type='search']")
@@ -40,16 +41,10 @@ public class HomePage extends BasePage {
     List < WebElement > dates;
     @FindBy(xpath = "//div[contains(@class,'sb-searchbox-submit-col -submit-button')]//span[contains(text(),'Search')]")
     private WebElement searchButton;
-    @FindBy (xpath = "//div[contains(@class,'profile-menu__item profile_menu__item--mysettings')]")
-    public WebElement settingsOption;
     @FindBy (xpath = "//span[contains(text(),'View deals')]")
     public WebElement viewDealsOnGreatGetaway;
-
-
     @FindBy(xpath="//*[@id=\"footer_links\"]/div[3]/ul/li[5]/a")
     WebElement lnk_TravelCommunity;
-
-
 
 
 
