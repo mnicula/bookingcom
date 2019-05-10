@@ -3,6 +3,7 @@ package testContext;
 import com.endava.booking.atf.manager.WebDriverManager;
 import com.endava.booking.atf.utilities.PageObjectUtilities;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import scenContext.ScenarioContext;
 
 public class TestContext {
     private WebDriverManager webDriverManager;
@@ -10,10 +11,13 @@ public class TestContext {
     private WebDriverWait wait;
     private boolean flag;
 
+    public ScenarioContext scenarioContext;
+
     public TestContext() {
         webDriverManager = new WebDriverManager();
         pageObjectUtilities = new PageObjectUtilities(webDriverManager.getDriver());
         wait = new WebDriverWait(webDriverManager.getDriver(), 20);
+        scenarioContext = new ScenarioContext();
     }
 
     public WebDriverManager getWebDriverManager() {
@@ -28,7 +32,12 @@ public class TestContext {
         return wait;
     }
 
+
     public boolean getFlag() {
         return flag;
+    }
+
+    public ScenarioContext getScenarioContext() {
+        return scenarioContext;
     }
 }

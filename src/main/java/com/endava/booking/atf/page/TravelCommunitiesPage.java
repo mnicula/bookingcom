@@ -13,14 +13,6 @@ public class TravelCommunitiesPage extends BasePage {
     WebElement giveTipBtn;
     @FindBy(xpath = "//a[contains(@class, 'new-post-btn__btn-question')]")
     WebElement askQuestionBtn;
-    @FindBy(xpath = "//a[@class='navbar__link js-communities-tab']//div[@class='navbar__link-content']")
-    WebElement communitiesTab;
-    @FindBy(xpath = "//a[contains(@class,'navbar__link js-communities-tab']")
-    WebElement communitiesTab2;
-
-//    /html/body/div[4]/div[1]/h3
-//    <h3 class="congrats-message__title">Your post is live!</h3>
-    WebElement congratMessage;
 
     public TravelCommunitiesPage(WebDriver driver) {
         super(driver);
@@ -29,22 +21,15 @@ public class TravelCommunitiesPage extends BasePage {
     @Override
     public boolean isElementDisplayed() {
         try {
-            System.out.println("travelCommunitiesHeader.isDisplayed()");
             return travelCommunitiesHeader.isDisplayed();
         } catch (Exception e) {
             return false;
         }
     }
 
-    public String validateTravelCommunitiesPageTitle(WebDriver driver){
-        return driver.getTitle();
-    }
     public String validatePageUrl(WebDriver driver) {
         String pageURL = driver.getCurrentUrl();
         return pageURL;
     }
-//    public boolean validateCRMImage(){
-//        return crmLogo.isDisplayed();
-//    }
 
 }

@@ -1,15 +1,20 @@
 package com.endava.booking.atf.page;
 
 import com.endava.booking.atf.common.action.BasePage;
-import org.openqa.selenium.By;
-import org.openqa.selenium.NoSuchElementException;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
+import org.openqa.selenium.support.FindAll;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.util.Iterator;
 import java.util.List;
 
 public class GiveTipPage extends BasePage {
+
+    public WebDriver driver;
+    public JavascriptExecutor jse;
 
     @FindBy(xpath = "//h1[@class='bui-f-font-display_one bui-spacer--large new-post-page__title']")
     public WebElement giveTipHeader;
@@ -17,15 +22,16 @@ public class GiveTipPage extends BasePage {
     public WebElement giveTipHeader1;
     @FindBy(xpath = "//h1[text()='Give a tip']")
     public WebElement giveTipHeader2;
-    @FindBy(xpath = "//label[contains(text(),'Publish your post in:')]")
-    WebElement publishPostInLbl;
     @FindBy(xpath = "//div[@class='input-communities-select__fake-input bui-form__control js-form-fake-input']")
     WebElement chooseTravelCommunityInputBox;
+    @FindBy(xpath = "//div[@class='input-communities-select__dropdown-backdrop']")
+    WebElement selectDropdownBackdrop;
     @FindBy(xpath = "//div[@class='input-communities-select__dropdown js-input-select-dropdown']")
     WebElement selectInputCommunities;
-
     @FindBy(xpath="//input[@placeholder='Search all communities...']")
     WebElement searchCommunitiesPlaceHolder;
+    @FindBy(xpath = "//a[contains(@class, 'input-communities-select__dropdown-item')]")
+    List<WebElement> allCommunities;
     @FindBy(xpath = "//input[@id='comm-form-field-text-2-input']")
     WebElement titleInputBox;
     @FindBy(xpath ="//label[contains(text(),'Your tip')]")
@@ -39,17 +45,16 @@ public class GiveTipPage extends BasePage {
     WebElement postBtn;
     @FindBy(xpath ="//div[contains(text(),'France Community']")
     WebElement franceCommunityWebElement;
-    //div[@class='input-communities-select__dropdown js-input-select-dropdown']
-     //       [contains(@class, 'new-post-btn__btn-question')]
+
     public GiveTipPage(WebDriver driver) {
         super(driver);
+        jse =(JavascriptExecutor)driver;
     }
 
     @Override
     public boolean isElementDisplayed() {
          try {
-             System.out.println("giveTipHeader.isDisplayed()");
-            return this.giveTipHeader.isDisplayed();
+             return this.giveTipHeader.isDisplayed();
         } catch (NoSuchElementException e) {
             return false;
         }
@@ -57,19 +62,8 @@ public class GiveTipPage extends BasePage {
     public String validatePageUrl(WebDriver driver) {
         String pageURL = driver.getCurrentUrl();
         return pageURL;
-        //Check and verify that the URL loaded remains the same and the correct page is loaded.
-        //Assert.assertEquals(expectedUrl,  driver.getCurrentUrl());
     }
-    public boolean isListCommunitiesEmpty(WebDriver driver) {
-        WebElement roleDropdown = driver.findElement(By.id("name1"));
-        roleDropdown.click();
-        this.selectInputCommunities.findElements(By.xpath("class='input-communities-select__dropdown js-input-select-dropdown"));
 
- //       body > div:nth-child(37) > div:nth-child(2) > main > div > div > form > div.js-input-communities-select-wrap > div > div.input-communities-select__dropdown.js-input-select-dropdown > div.input-communities-select__dropdown-list > a:nth-child(14)
-
-        return true;
-
-    }
     public void typeTitle(String title) {
         titleInputBox.sendKeys(title);
     }
@@ -81,10 +75,37 @@ public class GiveTipPage extends BasePage {
         searchCommunitiesPlaceHolder.sendKeys(placeholder);
         String s3 ="//div[contains(text(),'France Community')]";
         WebElement france =driver.findElement(By.xpath("//div[contains(text(),'France Community')]"));
-        System.out.println("//div[contains(text(),'France Community')]"+france.getText());
         france.click();
     }
+    public void selectCommunity1(WebDriver driver){
+        WebElement v =
+                driver.findElement(By.xpath("//div[@class='input-communities-select__fake-input bui-form__control js-form-fake-input']")) ;
+        v.click();
+//        selectInputCommunities.click();
+        searchCommunitiesPlaceHolder.sendKeys("Fr");
+        String s3 ="//div[contains(text(),'France Community')]";
+        WebElement france =driver.findElement(By.xpath("//div[contains(text(),'France Community')]"));
+        String sourceLocation = france.getAttribute("href");
+        System.out.println("sourceLocation:" + sourceLocation);
+        france.click();
+
+    }
+
+    public void selectCommunity(WebDriver driver, String communityName) {
+//      Iterator<WebElement> i =  allCommunities.iterator();  Egypt Community
+//      while (i.hasNext()){
+//        selectDropdownBackdrop.click();
+        WebDriverWait wait = new WebDriverWait(driver, 5);
+        wait.until(ExpectedConditions.visibilityOfAllElements(allCommunities));
+        for (int i=0; i<allCommunities.size()-1; i++)
+          if (allCommunities.get(i).getAttribute("data-title").contains(communityName)){
+              try {
+                  jse.executeScript("arguments[0].click();", allCommunities.get(i));
+              }
+                  catch(Exception e){e.printStackTrace();}
+              break;
+        }
+    }
+
 }
-
-
 
