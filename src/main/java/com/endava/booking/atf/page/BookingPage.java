@@ -1,6 +1,7 @@
 package com.endava.booking.atf.page;
 
 import com.endava.booking.atf.common.action.BasePage;
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -41,6 +42,9 @@ public class BookingPage extends BasePage {
     @FindBy(xpath = "//button[contains(text(), 'reserve')]")
     WebElement illreserveButton;
 
+    @FindBy(xpath = "//li[@class='hp_nav_bar_item']//a[@id='show_reviews_tab']")
+    WebElement guestReviewsTab;
+
 
     public BookingPage(WebDriver driver) {
         super ( driver );
@@ -58,22 +62,22 @@ public class BookingPage extends BasePage {
         select.selectByValue(value);
     }
 
-
+    public void doesSlidingWidgetAppear(String string) {
+        Boolean isPresent = driver.findElements(By.xpath("//div[@class='sliding-panel-widget-content review_list_block one_col']")).size() > 0;
+        if (isPresent == true) System.out.println("The user sees a sliding reviews widget appearing from the side of the page");
+        else System.out.println("The user does not see a sliding reviews widget");
+    }
 
 
     @Override
     public boolean isElementDisplayed() {
         try {
-            return this.reserveButton.isDisplayed();
+            return driver.getCurrentUrl().contains("https://www.booking.com/hotel");
         } catch (Exception e){
             return false;
         }
     }
 
 
-    public void inputPersonalInfo(){
-
-
-    }
 
 }
