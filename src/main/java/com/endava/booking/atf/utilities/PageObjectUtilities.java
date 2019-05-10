@@ -50,10 +50,11 @@ public class PageObjectUtilities {
         return method;
     }
 
+
     public WebElement getWebElementByName(Object page, String elementName) {
         WebElement element = null;
         try {
-            Field field = page.getClass().getDeclaredField (elementName);
+            Field field = page.getClass().getDeclaredField(elementName);
             field.setAccessible(true);
             element = (WebElement) field.get(page);
         } catch (NoSuchFieldException | IllegalAccessException e) {
@@ -61,6 +62,7 @@ public class PageObjectUtilities {
         }
         return element;
     }
+
 
     public void switchTab(int tabNr){
         ArrayList<String> tabs = new ArrayList<>(driver.getWindowHandles());

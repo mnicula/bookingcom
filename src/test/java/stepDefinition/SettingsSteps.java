@@ -21,15 +21,16 @@ public class SettingsSteps extends BaseStep {
         settingsPage.completeCardData ( valueToComplete , expiryMonthValue , expireYearValue , creditCardNumber , creditCardHolder );
     }
 
+
     @Then("^credit card is added$")
     public void userUserIsRegistered() {
         page = utilities.getPageByName ( "Settings" );
         SettingsPage settingsPage = (SettingsPage) page;
-        assertThat ( "User is registered" , settingsPage.receives ( settingsPage.successfullyAddedCardMsg ) , is ( "Your changes have been saved" ) );
+        assertThat ( "Credit card is added" , settingsPage.receives ( settingsPage.successfullyAddedCardMsg ) , is ( "Your changes have been saved" ) );
     }
 
     @Then("^user is warned that saving card is not possible$")
-    public void userIsWarnedThatDeliveryIsNotPossible() throws Throwable {
+    public void userIsWarnedThatSavingCardIsNotPossible() throws Throwable {
         page = utilities.getPageByName ( "Settings" );
         SettingsPage settingsPage = (SettingsPage) page;
         assertThat ( "User is warned that saving card is not possible " , settingsPage.receives ( settingsPage.warningCardType ) ,
