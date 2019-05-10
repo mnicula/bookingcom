@@ -28,7 +28,7 @@ public class TaxiBookingSteps extends BaseStep {
         taxiBookingPage.enterPaymentDetailsForTaxi ();
     }
     @Then("^user is warned that booking taxi with invalid card is not possible$")
-    public void userIsWarnedThatDeliveryIsNotPossible() throws Throwable {
+    public void userIsWarnedThatBookingTaxiIsNotPossible(String arg0) throws Throwable {
         page = utilities.getPageByName ( "TaxiBooking" );
         TaxiBookingPage taxiBookingPage = (TaxiBookingPage) page;
         assertThat ( "is warned that booking taxi with invalid card is not possible" , taxiBookingPage.receives ( taxiBookingPage.warningBookingTaxiMsg ) ,
