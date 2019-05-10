@@ -30,9 +30,9 @@ public class WebDriverManager {
         switch (browser) {
             case CHROME:
                 System.setProperty(Browser.CHROME.getDriverProperty(), DRIVER_PATH + "chromedriver.exe");
-                ChromeOptions options = new ChromeOptions();
-                options.addArguments("user-data-dir=target/custom/profile");
-                driver = new ChromeDriver(options);
+                //ChromeOptions options = new ChromeOptions();
+                //options.addArguments("user-data-dir=target/custom/profile");
+                driver = new ChromeDriver();
                 break;
             case INTERNETEXPLORER:
                 DesiredCapabilities defaultZoom = DesiredCapabilities.internetExplorer();
