@@ -1,11 +1,14 @@
 package stepDefinition;
 
 import com.endava.booking.atf.page.RegisterPage;
+import com.endava.booking.atf.utilities.Log;
 import comonSteps.BaseStep;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import testContext.TestContext;
+
+import java.text.MessageFormat;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -20,7 +23,9 @@ public class RegisterSteps extends BaseStep {
     public void userUserIsRegistered() {
         page = utilities.getPageByName("Register");
         RegisterPage registerPage = (RegisterPage) page;
-        assertThat("User is registered", registerPage.receives(registerPage.confirmationMsg), is("Welcome to Booking.com"));
+
+        assertThat ( "User is registered" , registerPage.receives ( registerPage.confirmationMsg ) , is ( "Welcome to Booking.com" ) );
+
     }
 
     @And("^user fills in duplicate account mail$")
@@ -35,7 +40,11 @@ public class RegisterSteps extends BaseStep {
     public void userIsWarnedAboutDuplicate() {
         page = utilities.getPageByName("Register");
         RegisterPage registerPage = (RegisterPage) page;
-        assertThat("User is warned about duplicate", registerPage.receives(registerPage.errorMsgMail), is("You already have a Booking.com account registered to this email: testATF01@test.com. You can sign in directly."));
+        assertThat ( "User is warned about duplicate" , registerPage.receives ( registerPage.errorMsgMail ) , is ( "You already have a Booking.com account registered to this email: testATF01@test.com. You can sign in directly." ) );
+        Log.info ( MessageFormat.format ( "User is warned about dublicate mail: {0}" , registerPage.errorMsgMail ) );
+
+       
+
     }
 
     @When("^user fills in different passwords$")
@@ -51,6 +60,6 @@ public class RegisterSteps extends BaseStep {
     public void userIsWarnedAboutPasswordMismatch() {
         page = utilities.getPageByName("Register");
         RegisterPage registerPage = (RegisterPage) page;
-        assertThat("User is warned about password mismatch", registerPage.receives(registerPage.errorMsgPassword), is("The passwords you entered did not match, please try again"));
+        assertThat ( "User is warned about password mismatch" , registerPage.receives ( registerPage.errorMsgPassword ) , is ( "The passwords you entered did not match, please try again" ) );
     }
 }

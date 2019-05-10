@@ -30,7 +30,7 @@ public class SettingsSteps extends BaseStep {
     }
 
     @Then("^user is warned that saving card is not possible$")
-    public void userIsWarnedThatDeliveryIsNotPossible() throws Throwable {
+    public void userIsWarnedThatSavingCardIsNotPossible() throws Throwable {
         page = utilities.getPageByName ( "Settings" );
         SettingsPage settingsPage = (SettingsPage) page;
         assertThat ( "User is warned that saving card is not possible " , settingsPage.receives ( settingsPage.warningCardType ) ,
