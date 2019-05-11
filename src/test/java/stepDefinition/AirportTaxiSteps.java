@@ -1,6 +1,5 @@
 package stepDefinition;
 
-import com.endava.booking.atf.utilities.Log;
 import comonSteps.BaseStep;
 import cucumber.api.java.en.And;
 import org.openqa.selenium.WebElement;
@@ -9,7 +8,6 @@ import testContext.TestContext;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-import java.text.MessageFormat;
 
 public class AirportTaxiSteps extends BaseStep {
 
