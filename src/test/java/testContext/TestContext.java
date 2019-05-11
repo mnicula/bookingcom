@@ -8,7 +8,7 @@ public class TestContext {
     private WebDriverManager webDriverManager;
     private PageObjectUtilities pageObjectUtilities;
     private WebDriverWait wait;
-    private boolean flag;
+
 
     public TestContext() {
         webDriverManager = new WebDriverManager();
@@ -28,7 +28,4 @@ public class TestContext {
         return wait;
     }
 
-    public boolean getFlag() {
-        return flag;
     }
-}
