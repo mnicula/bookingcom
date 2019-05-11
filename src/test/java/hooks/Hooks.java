@@ -5,6 +5,8 @@ import cucumber.api.Scenario;
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
 import testContext.TestContext;
+import java.io.IOException;
+
 
 public class Hooks {
     TestContext testContext;
@@ -20,10 +22,11 @@ public class Hooks {
 
     }
 
-//    @After
-//    public void AfterSteps() throws IOException {
-//        testContext.getWebDriverManager().closeDriver();
-//    }
+    @After
+    public void AfterSteps() throws IOException {
+        testContext.getWebDriverManager().closeDriver();
+
+    }
 
 
 }

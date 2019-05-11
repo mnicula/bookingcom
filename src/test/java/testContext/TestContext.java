@@ -9,7 +9,7 @@ public class TestContext {
     private WebDriverManager webDriverManager;
     private PageObjectUtilities pageObjectUtilities;
     private WebDriverWait wait;
-    private boolean flag;
+
 
     public ScenarioContext scenarioContext;
 
@@ -32,12 +32,4 @@ public class TestContext {
         return wait;
     }
 
-
-    public boolean getFlag() {
-        return flag;
     }
-
-    public ScenarioContext getScenarioContext() {
-        return scenarioContext;
-    }
-}
