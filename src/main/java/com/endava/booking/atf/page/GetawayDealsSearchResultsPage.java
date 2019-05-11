@@ -26,7 +26,7 @@ public class GetawayDealsSearchResultsPage extends BasePage {
     WebElement showOnlyAvailableProperties;
 
     @FindBy(xpath = "//sup[@class='sr_room_reinforcement'][contains(text(),'Breakfast')]")
-    List <WebElement> breakfastReinforcementMessage;
+    List<WebElement> breakfastReinforcementMessage;
 
 
     public GetawayDealsSearchResultsPage(WebDriver driver) {
@@ -49,7 +49,12 @@ public class GetawayDealsSearchResultsPage extends BasePage {
 
 
     public void doesFilterWorkOK() {
-        if (breakfastReinforcementMessage.size() == 19) System.out.println("Filter works OK");
+        WebDriverWait wait = new WebDriverWait(driver, 60);
+        wait.until(ExpectedConditions.visibilityOf(searchTable));
+        for (WebElement element : breakfastReinforcementMessage){
+            System.out.println(element.getText());
+        }
+        if (breakfastReinforcementMessage.size() == 20) System.out.println("Filter works OK");
         else System.out.println("Getaway deals list is not filtered properly");
     }
 
