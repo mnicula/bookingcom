@@ -14,7 +14,7 @@ public class SettingsSteps extends BaseStep {
         super ( context );
     }
 
-    @And("^user completes card data with '(.*)' , '(.*)' , '(.*)', '(.*)' and '(.*)'$")
+    @And("^user completes card data with '(.*)' , '(.*)' , '(.*)' , '(.*)' and '(.*)'$")
     public void userSelectCardType(String valueToComplete , String expiryMonthValue , String expireYearValue , String creditCardNumber , String creditCardHolder) {
         page = utilities.getPageByName ( "Settings" );
         SettingsPage settingsPage = (SettingsPage) page;
