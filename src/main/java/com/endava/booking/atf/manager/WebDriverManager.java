@@ -44,8 +44,6 @@ public class WebDriverManager {
         goToHomePage();
         maximizeWindow();
         setImplicitWait();
-
-        driver.manage().deleteAllCookies();
         return driver;
     }
 

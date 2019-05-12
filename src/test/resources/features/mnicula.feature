@@ -43,7 +43,7 @@ Feature:booking
         And user clicks on 'emailDetails' link
         And user navigates to mail
         And user opens recent email
-       # Then email contains searched car name
+        Then email subject contains the reference number from from CarSearchResultPage
 
         Examples:
           | title | firstName  | surname       | email                        | phone         |
