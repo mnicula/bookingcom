@@ -40,8 +40,6 @@ public class HomePage extends BasePage {
     List < WebElement > dates;
     @FindBy(xpath = "//div[contains(@class,'sb-searchbox-submit-col -submit-button')]//span[contains(text(),'Search')]")
     private WebElement searchButton;
-    @FindBy (xpath = "//div[contains(@class,'profile-menu__item profile_menu__item--mysettings')]")
-    public WebElement settingsOption;
     @FindBy (xpath = "//span[contains(text(),'View deals')]")
     public WebElement viewDealsOnGreatGetaway;
 

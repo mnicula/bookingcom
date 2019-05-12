@@ -1,25 +1,17 @@
 package stepDefinition;
 
-import com.endava.booking.atf.common.action.BasePage;
-import com.endava.booking.atf.page.AskQuestionPage;
-import com.endava.booking.atf.page.GiveTipPage;
+import com.endava.booking.atf.page.AnyCommunityPage;
 import com.endava.booking.atf.page.TravelCommunitiesPage;
 //import com.sun.java.util.jar.pack.Package;
 import comonSteps.BaseStep;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
-import cucumber.api.java.en.When;
-import gherkin.formatter.Reporter;
 import org.junit.Assert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.Select;
 import testContext.TestContext;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-import java.util.concurrent.TimeUnit;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertEquals;
@@ -60,15 +52,29 @@ public class TravelCommunitiesSteps extends BaseStep {
         method.invoke ( page , webElement , valueToComplete );
     }
 
-
-    @And("^user put in the searchCommunitiesPlaceHolder K$")
-    public void K()  {
-        page = utilities.getPageByName ("GiveTip" );
-        GiveTipPage giveTipPage = (GiveTipPage) page;
-        giveTipPage.typeCommunities(driver,"Fr");
-    }
+//    @And("^user put in the searchCommunitiesPlaceHolder K$")
+//    public void K()  {
+//        page = utilities.getPageByName ("GiveTip" );
+//        GiveTipPage giveTipPage = (GiveTipPage) page;
+//        giveTipPage.typeCommunities(driver,"Fr");
+//    }
     @And("^user sleep for '(.*)' milliseconds$")
     public void sleep(Long longValue) throws InterruptedException {
         Thread.sleep(longValue);
     }
+
+    @And("^covername is correct on page '(.*)'$")
+    public  void coverNameIsCorrect(String pageName){
+        page = utilities.getPageByName ( pageName );
+        AnyCommunityPage anyCommunityPage = (AnyCommunityPage) page;
+        String it = anyCommunityPage.getCoverNameText();
+        System.out.println(it);
+    }
+    @And("^user chooses community by name '(.*)'$")
+    public void userChoosesCommunity(String communityName){
+        page = utilities.getPageByName ( "TravelCommunities" );
+        TravelCommunitiesPage travelCommunitiesPage = (TravelCommunitiesPage) page;
+        travelCommunitiesPage.goToCommunity(driver, communityName);
+    }
+
 }

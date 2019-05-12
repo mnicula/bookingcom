@@ -71,25 +71,25 @@ public class GiveTipPage extends BasePage {
         yourTipTextArea.sendKeys(yourTip);
     }
 
-    public void typeCommunities(WebDriver driver, String placeholder){
-        searchCommunitiesPlaceHolder.sendKeys(placeholder);
-        String s3 ="//div[contains(text(),'France Community')]";
-        WebElement france =driver.findElement(By.xpath("//div[contains(text(),'France Community')]"));
-        france.click();
-    }
-    public void selectCommunity1(WebDriver driver){
-        WebElement v =
-                driver.findElement(By.xpath("//div[@class='input-communities-select__fake-input bui-form__control js-form-fake-input']")) ;
-        v.click();
-//        selectInputCommunities.click();
-        searchCommunitiesPlaceHolder.sendKeys("Fr");
-        String s3 ="//div[contains(text(),'France Community')]";
-        WebElement france =driver.findElement(By.xpath("//div[contains(text(),'France Community')]"));
-        String sourceLocation = france.getAttribute("href");
-        System.out.println("sourceLocation:" + sourceLocation);
-        france.click();
-
-    }
+//    public void typeCommunities(WebDriver driver, String placeholder){
+//        searchCommunitiesPlaceHolder.sendKeys(placeholder);
+//        String s3 ="//div[contains(text(),'France Community')]";
+//        WebElement france =driver.findElement(By.xpath("//div[contains(text(),'France Community')]"));
+//        france.click();
+//    }
+//    public void selectCommunity1(WebDriver driver){
+//        WebElement v =
+//                driver.findElement(By.xpath("//div[@class='input-communities-select__fake-input bui-form__control js-form-fake-input']")) ;
+//        v.click();
+////        selectInputCommunities.click();
+//        searchCommunitiesPlaceHolder.sendKeys("Fr");
+//        String s3 ="//div[contains(text(),'France Community')]";
+//        WebElement france =driver.findElement(By.xpath("//div[contains(text(),'France Community')]"));
+//        String sourceLocation = france.getAttribute("href");
+//        System.out.println("sourceLocation:" + sourceLocation);
+//        france.click();
+//
+//    }
 
     public void selectCommunity(WebDriver driver, String communityName) {
 //      Iterator<WebElement> i =  allCommunities.iterator();  Egypt Community

@@ -20,7 +20,6 @@ public class GiveTipSteps extends BaseStep {
         GiveTipPage giveTipPage = (GiveTipPage) page;
         giveTipPage.selectCommunity(driver, communityName);
         context.scenarioContext.setContext(Context.COMMUNITY_NAME, communityName);
-        Thread.sleep(5000);
     }
 
 }
