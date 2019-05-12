@@ -22,7 +22,6 @@ public class AskQuestionsSteps extends BaseStep {
         page = utilities.getPageByName("AskQuestion");
         AskQuestionPage askQuestionPage = (AskQuestionPage) page;
         askQuestionPage.completeQuestionType(typeQuestion);
-        // assertEquals();
     }
 
     @And("^user selects data '(.*)' from '(.*)' field on '(.*)' page$")
@@ -34,15 +33,6 @@ public class AskQuestionsSteps extends BaseStep {
         dropdown.selectByVisibleText(valueToSelect);
     }
 
-    @And("^user selects any data from '(.*)' field on '(.*)' page$")
-    public void userSelectsAnyDataByIndex1(String valueToSelect, String element, String myPage)
-            throws InvocationTargetException, IllegalAccessException {
-//        page = utilities.getPageByName(myPage);
-//        AskQuestionPage askQuestionPage = (AskQuestionPage) page;
-//        WebElement webElement = utilities.getWebElementByName(page, element);
-//        askQuestionPage.chooseRandomValueByIndex(webElement);
-
-    }
     @And("^user select community by name '(.*)' on AskQuestion page$")
     public void selectCommunityByName(String communityName){
         page = utilities.getPageByName ( "AskQuestion" );
@@ -58,19 +48,20 @@ public class AskQuestionsSteps extends BaseStep {
         WebElement webElement = utilities.getWebElementByName(page, element);
         askQuestionPage.chooseRandomValueByIndex(webElement);
     }
-    @And("^user selects city '(.*)' to stay$")
-    public void userSelectsPlacesToStay(String cityName){
-        page = utilities.getPageByName("AskQuestion");
-        AskQuestionPage askQuestionPage = (AskQuestionPage) page;
- //       askQuestionPage.chooseRandomPlacesToStay();
-       askQuestionPage.choosePlacesToStay(driver, cityName);
-    }
 
     @And("^user selects any places to stay$")
     public void userSelectsAnyPlacesToStay(){
         page = utilities.getPageByName("AskQuestion");
         AskQuestionPage askQuestionPage = (AskQuestionPage) page;
         askQuestionPage.chooseRandomPlacesToStay(driver);
+    }
+
+    @And("^user selects city from list begining at '(.*)'$")
+    public void userSelectsCityTravellingFrom(String cityFirstLetters){
+        page = utilities.getPageByName("AskQuestion");
+        AskQuestionPage askQuestionPage = (AskQuestionPage) page;
+        askQuestionPage.choosePlacesToStay(driver,cityFirstLetters);
+
     }
 
 //        try {

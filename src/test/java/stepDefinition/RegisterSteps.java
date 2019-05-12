@@ -41,8 +41,6 @@ public class RegisterSteps extends BaseStep {
         RegisterPage registerPage = (RegisterPage) page;
         assertThat ( "User is warned about duplicate" , registerPage.receives ( registerPage.errorMsgMail ) , is ( "You already have a Booking.com account registered to this email: testATF01@test.com. You can sign in directly." ) );
 
-       
-
     }
 
     @When("^user fills in different passwords$")
