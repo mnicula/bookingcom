@@ -14,6 +14,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import testContext.TestContext;
 
+import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
@@ -74,7 +75,7 @@ public class CarsSearchResultsSteps extends BaseStep {
     }
 
     @And("^user clicks on 'emailDetails' link$")
-    public void clickOnLink(){
+    public void clickOnLink() throws IOException, InterruptedException {
         CarSearchResultsPage carSearchResultsPage = (CarSearchResultsPage) page;
         carSearchResultsPage.clickEmailDetails();
         wait.until(ExpectedConditions.visibilityOf(carSearchResultsPage.driver.findElement(By.xpath("//span[@class='reference-number']"))));

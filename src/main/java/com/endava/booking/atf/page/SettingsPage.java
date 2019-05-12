@@ -24,7 +24,7 @@ public class SettingsPage extends BasePage {
     WebElement expiryMonth;
     @FindBy(xpath = "//button[contains(text(),'Save change')]")
     WebElement saveCreditChangesButton;
-    @FindBy(id = "cardnumber")
+ @FindBy(id = "cardnumber")
     WebElement cardNumber;
     @FindBy(id = "cardholder")
     WebElement cardHolder;

@@ -6,10 +6,12 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 public class GetawayDealsSearchResultsPage extends BasePage {
 
@@ -26,7 +28,7 @@ public class GetawayDealsSearchResultsPage extends BasePage {
     WebElement showOnlyAvailableProperties;
 
     @FindBy(xpath = "//sup[@class='sr_room_reinforcement'][contains(text(),'Breakfast')]")
-    List <WebElement> breakfastReinforcementMessage;
+    List<WebElement> breakfastReinforcementMessage;
 
 
     public GetawayDealsSearchResultsPage(WebDriver driver) {
@@ -48,8 +50,19 @@ public class GetawayDealsSearchResultsPage extends BasePage {
     }
 
 
-    public void doesFilterWorkOK() {
-        if (breakfastReinforcementMessage.size() == 19) System.out.println("Filter works OK");
+    public void doesFilterWorkOK() throws InterruptedException {
+        WebDriverWait wait = new WebDriverWait(driver, 60);
+//        wait.until(new ExpectedCondition<Boolean>() {
+//            public Boolean apply(WebDriver driver) {
+//                return (jse).executeScript(
+//                        "return document.readyState"
+//                ).equals("complete");
+//            }
+//        });
+
+        //wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.xpath("//sup[@class='sr_room_reinforcement'][contains(text(),'Breakfast')]")));
+        Thread.sleep(5000);
+        if (breakfastReinforcementMessage.size() == 20) System.out.println("Filter works OK");
         else System.out.println("Getaway deals list is not filtered properly");
     }
 

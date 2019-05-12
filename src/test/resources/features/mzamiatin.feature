@@ -8,7 +8,7 @@ Feature: accommodations1
     And user clicks on 'nextSignInButton'
     And  user completes the 'passwordSignIn' field with '123123123' value
     And user clicks on 'signInButton'
-    And user is authenticated and is on home page
+    And user is authenticated with rewards options
     And user is on 'Home' page
 
   @accommodations1
