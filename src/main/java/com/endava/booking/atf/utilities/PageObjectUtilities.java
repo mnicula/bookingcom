@@ -67,6 +67,7 @@ public class PageObjectUtilities {
     public void switchTab(int tabNr){
         ArrayList<String> tabs = new ArrayList<>(driver.getWindowHandles());
         driver.switchTo().window(tabs.get(tabNr));
+        driver.manage().window().maximize();
     }
 
 }

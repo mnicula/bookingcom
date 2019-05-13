@@ -29,7 +29,7 @@ public class HomePage extends BasePage {
     public WebElement giftChallenge;
     @FindBy(xpath = "//div[contains(@class,'profile-menu__item profile_menu__item--mysettings')]")
     public WebElement settingsOption;
-    @FindBy(xpath = "//input[@type='search']")
+    @FindBy(id = "ss")
     WebElement locationField;
     @FindBy(xpath = "//span[contains(text(),'Register')]")
     WebElement registerButton;

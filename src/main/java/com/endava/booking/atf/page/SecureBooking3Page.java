@@ -7,7 +7,13 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.util.concurrent.TimeUnit;
+
+import static org.apache.http.HttpHeaders.TIMEOUT;
 
 public class SecureBooking3Page extends BasePage {
 
@@ -39,15 +45,28 @@ public class SecureBooking3Page extends BasePage {
     }
 
 
+    public void waitForUrlContains(String expectedString, WebDriver driver, int TIMEOUT) {
+        waitForUrlContains(expectedString, driver, TIMEOUT);
+    }
+
+
     public void ScrollDownAndPressButton() {
         jse.executeScript("arguments[0].scrollIntoView();", completeBooking);
         WebDriverWait wait = new WebDriverWait(driver, 60);
         jse.executeScript("arguments[0].click();", completeBooking);
+        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
     }
 
 
     @Override
     public boolean isElementDisplayed() {
+        WebDriverWait wait = new WebDriverWait(driver, 60);
+        wait.until(new ExpectedCondition<Boolean>() {
+            public Boolean apply(WebDriver driver) {
+                return (jse).executeScript("return document.readyState").equals("complete");
+            }
+        });
+
         try {
             return driver.getCurrentUrl().equals("https://secure.booking.com/book.html");
         } catch (Exception e){
