@@ -45,13 +45,11 @@ and the information should live in a support class or on a step definition.
     public void before(Scenario scenario) {
         this.scenario = scenario;
         Log.info ( "Scenario name: " + scenario.getName () );
-        Log.startLog ( "Test is Starting!" );
     }
 
     @After
     public void AfterSteps() throws IOException {
         testContext.getWebDriverManager ().closeDriver ();
-        Log.endLog ( "Test is ending!" );
     }
 
 
@@ -66,6 +64,12 @@ Recommended basic structure:
 #  Abstraction, patterns and framework organisation
 
 
-The singleton patter is useful because exactly one object is needed to coordinate actions across the system.
+The singleton pattern is useful because exactly one object is needed to coordinate actions across the system.
 
+
+# 7. Cucumber report and logs in the end of run 
+
+Have a output folder with .html report and logs. 
+ * used "com.aventstack:extentreports-cucumber3-adapter" dependency
+ * all info about output files is in extent.properties
   

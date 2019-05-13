@@ -39,11 +39,13 @@ public class GetawayDealsSearchResultsPage extends BasePage {
     }
 
     public void SelectFilterCriteria() {
-        jse.executeScript("arguments[0].scrollIntoView();", breakfastIncluded);
         WebDriverWait wait = new WebDriverWait(driver, 60);
+        wait.until(ExpectedConditions.elementToBeClickable(breakfastIncluded));
+        jse.executeScript("arguments[0].scrollIntoView();", breakfastIncluded);
         jse.executeScript("arguments[0].click();", breakfastIncluded);
-        wait.until(ExpectedConditions.visibilityOf(searchTable));
 
+        driver.manage().timeouts().implicitlyWait(7, TimeUnit.SECONDS);
+        wait.until(ExpectedConditions.elementToBeClickable(showOnlyAvailableProperties));
         jse.executeScript("arguments[0].scrollIntoView();", showOnlyAvailableProperties);
         jse.executeScript("arguments[0].click();", showOnlyAvailableProperties);
         wait.until(ExpectedConditions.visibilityOf(searchTable));
@@ -52,17 +54,15 @@ public class GetawayDealsSearchResultsPage extends BasePage {
 
     public void doesFilterWorkOK() throws InterruptedException {
         WebDriverWait wait = new WebDriverWait(driver, 60);
-//        wait.until(new ExpectedCondition<Boolean>() {
-//            public Boolean apply(WebDriver driver) {
-//                return (jse).executeScript(
-//                        "return document.readyState"
-//                ).equals("complete");
-//            }
-//        });
+//        wait.until(new ExpectedCondition<Boolean>()
+//            {
+//            public Boolean apply(WebDriver driver)
+//            { return (jse).executeScript("return document.readyState").equals("complete"); }
+//            });
 
         //wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.xpath("//sup[@class='sr_room_reinforcement'][contains(text(),'Breakfast')]")));
         Thread.sleep(5000);
-        if (breakfastReinforcementMessage.size() == 20) System.out.println("Filter works OK");
+        if (breakfastReinforcementMessage.size() >= 10) System.out.println("Filter works OK");
         else System.out.println("Getaway deals list is not filtered properly");
     }
 

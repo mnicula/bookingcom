@@ -55,7 +55,6 @@ public class TravelCommunitiesSteps extends BaseStep {
         Thread.sleep(longValue);
     }
 
-
     @And("^user chooses community by name '(.*)'$")
     public void userChoosesCommunity(String communityName){
         page = utilities.getPageByName ( "TravelCommunities" );

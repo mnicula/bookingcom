@@ -12,8 +12,8 @@ Feature: booking
     When user clicks on 'createAccountButton'
     Then user is registered
     Examples:
-      | email              | password |
-      | testatf012@mail.com | test1234 |
+      | email               | password |
+      | testbookingatf01@mail.com | test1234 |
 
 
   @register @negative @aserbu @2
@@ -33,7 +33,7 @@ Feature: booking
       | testatf0102@mail.com | test1234 |
 
 
-   @positive @aserbu @3 @addCard
+  @positive @aserbu @3 @addCard
   Scenario Outline: Check if registered user is able to add valid credit card to profile
     Given user is on 'Home' page
     And user clicks on 'signIn'
@@ -74,8 +74,8 @@ Feature: booking
     And user clicks on 'saveCreditChangesButton'
     Then user is warned that saving card is not possible
     Examples:
-      | email              | password |
-      | testatf01@mail.com | test1234 |
+      | email               | password |
+      | testatf090@mail.com | test1234 |
 
   @positive @searchTaxi @aserbu @5
   Scenario Outline: Registered user can't book taxi with invalid card
@@ -103,5 +103,5 @@ Feature: booking
     And user clicks on 'bookNowTaxi'
     Then user is warned that booking taxi with invalid card is not possible
     Examples:
-      | email              | password | pickUpLocation| dropOffLocation|
-      | testatf01@mail.com | test1234 | Chisinau      | Jolly Alon     |
+      | email              | password | pickUpLocation | dropOffLocation |
+      | testatf01@mail.com | test1234 | Chisinau       | Jolly Alon      |

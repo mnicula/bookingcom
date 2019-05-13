@@ -9,7 +9,7 @@ import org.openqa.selenium.support.ui.Select;
 public class TaxiBookingPage extends BasePage {
 
     public WebDriver driver;
-    @FindBy(xpath = "//span[contains(text(),'Sorry but we were unable to take your payment')]")
+    @FindBy(xpath = "//div[@class='rw-prompt__content']")
     public WebElement warningBookingTaxiMsg;
     @FindBy(xpath = "//select[@id='title']")
     WebElement title;

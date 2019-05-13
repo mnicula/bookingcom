@@ -38,9 +38,10 @@ public class LoginSteps extends BaseStep {
 
     @Then("^user is(.*) authenticated with rewards options$")
     public void user_is_authenticated_with_gifts(String arg0) throws InvocationTargetException, IllegalAccessException {
-        Method method = utilities.getClickMethod(page, "clicks");
-        WebElement webElement = wait.until(ExpectedConditions.elementToBeClickable(utilities.getWebElementByName(page, "closeButton")));
-        method.invoke(page, webElement);
+//        Method method = utilities.getClickMethod(page, "clicks");
+//        WebElement webElement = wait.until(ExpectedConditions.elementToBeClickable(utilities.getWebElementByName(page, "closeButton")));
+//        method.invoke(page, webElement);
+
         HomePage homePage = (HomePage) page;
         switch (arg0) {
             case "":

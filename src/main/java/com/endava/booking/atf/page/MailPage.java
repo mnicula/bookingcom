@@ -38,7 +38,7 @@ public class MailPage extends BasePage {
 
 
     public void navigateToMail() {
-        driver.get("https://www.mailinator.com/v3/index.jsp?zone=public&query=bookingauto#/#inboxpane");
+        driver.get("https://www.mailinator.com/v3/index.jsp?zone=public&query=bookingatf#/#inboxpane");
     }
 
     public void openRecentMail() {
@@ -47,7 +47,7 @@ public class MailPage extends BasePage {
 
     public boolean checkEmail() {
 
-        try (InputStream input = new FileInputStream("src//test//resources//testdata.properties")) {
+        try (InputStream input = new FileInputStream("src//test//resources//datastore.properties")) {
             Properties prop = new Properties();
             prop.load(input);
             if (driver.findElement(By.xpath("//h2[@class='ng-binding']")).getText().contains(prop.getProperty("referenceNumber"))) {

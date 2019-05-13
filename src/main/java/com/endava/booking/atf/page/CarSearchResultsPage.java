@@ -107,11 +107,9 @@ public class CarSearchResultsPage extends BasePage {
     public void clickEmailDetails() throws IOException, InterruptedException {
         emailDetails.click();
         Thread.sleep(5000);
-        try (OutputStream output = new FileOutputStream("src//test//resources//testdata.properties")) {
+        try (OutputStream output = new FileOutputStream("src//test//resources//datastore.properties")) {
             Properties prop = new Properties();
-            // set the properties value
             prop.setProperty("referenceNumber", referenceNr.getText());
-            // save properties to project root folder
             prop.store(output, null);
         } catch (IOException io) {
             io.printStackTrace();

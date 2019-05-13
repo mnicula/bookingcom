@@ -32,7 +32,7 @@ public class AirportTaxiPage extends BasePage {
     @Override
     public boolean isElementDisplayed() {
         try {
-            return this.taxiPageHeader.isDisplayed ();
+            return this.pickUpLocationTaxi.isDisplayed ();
         } catch (Exception e) {
             return false;
         }

@@ -6,11 +6,12 @@ import org.junit.runner.RunWith;
 @RunWith(Cucumber.class)
 @CucumberOptions(
 
-        tags = {"@15"},//scenarios to run
+        tags = {""},//scenarios to run
         glue = {"hooks" , "stepDefinition"},
         plugin = { "html:target/cucumber-reports",
-                "pretty"}
-      //      ,"com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:target/test-output/HtmlReport/cucumbareport.html" }
+                "pretty",
+                "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:target/test-output/HtmlReport/cucumbareport.html" }
+
 
 )
 

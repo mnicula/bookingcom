@@ -24,6 +24,9 @@ public class BookingPage extends BasePage {
     @FindBy(xpath = "//a[@class='b-button b-button_secondary b-button_small hp_sidebar-similar_button']")
     WebElement showSimilarHotels;
 
+    @FindBy(xpath = "//h2[@id='availability_target']")
+    WebElement availabilityTarget;
+
     @FindBy(xpath = "//div[@class = 'hprt-block']//select[@class = 'hprt-nos-select']")
     List<WebElement> roomQ;
 
@@ -54,9 +57,9 @@ public class BookingPage extends BasePage {
     }
 
     public void selectRooms(String value) {
-        jse.executeScript("arguments[0].scrollIntoView()", showSimilarHotels);
+        jse.executeScript("arguments[0].scrollIntoView()", availabilityTarget);
         WebDriverWait wait = new WebDriverWait(driver, 60);
-        wait.until(ExpectedConditions.visibilityOf(showSimilarHotels));
+        wait.until(ExpectedConditions.visibilityOf(availabilityTarget));
         roomQ.get(0).click();
         Select select = new Select(roomQ.get(0));
         select.selectByValue(value);
