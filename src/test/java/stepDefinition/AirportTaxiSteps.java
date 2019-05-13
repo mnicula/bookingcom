@@ -17,7 +17,6 @@ public class AirportTaxiSteps extends BaseStep {
 
     @And("^user (clicks) on '(.*)' taxi button$")
     public void userClickOnAirportTaxiButton(String action, String element) throws IllegalAccessException, InvocationTargetException, InterruptedException {
-        //Log.info(MessageFormat.format("User {0} on {1} taxi button", action, element));
         Method method = utilities.getClickMethod(page, action);
         WebElement webElement = wait.until(ExpectedConditions.elementToBeClickable(utilities.getWebElementByName(page, element)));
         method.invoke(page, webElement);
