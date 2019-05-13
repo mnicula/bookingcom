@@ -66,6 +66,6 @@ Recommended basic structure:
 #  Abstraction, patterns and framework organisation
 
 
-The singleton patter is useful because exactly one object is needed to coordinate actions across the system.
+The singleton pattern is useful because exactly one object is needed to coordinate actions across the system.
 
   
