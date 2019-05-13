@@ -43,7 +43,6 @@ public class RegisterSteps extends BaseStep {
         assertThat ( "User is warned about duplicate" , registerPage.receives ( registerPage.errorMsgMail ) , is ( "You already have a Booking.com account registered to this email: testATF01@test.com. You can sign in directly." ) );
 //        Log.info ( MessageFormat.format ( "User is warned about dublicate mail: {0}" , registerPage.errorMsgMail ) );
 
-       
 
     }
 
