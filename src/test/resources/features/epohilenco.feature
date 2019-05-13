@@ -29,7 +29,7 @@ Feature: booking
 #      | icovaci@inbox.ru        | icovaci1962|   Egypt     |Giza | Please, visit Giza.|
 
 
-  @travelcommunitiesLL @negative @epohilenco @16
+  @travelcommunities @negative @epohilenco @16
   Scenario Outline: verify that unauthorized user cann't post a question with questionType='Transport'
   on 'Ask a question" form
     Given user is on 'Home' page
