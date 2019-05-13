@@ -23,7 +23,7 @@ public class SettingsSteps extends BaseStep {
 
 
     @Then("^credit card is added$")
-    public void userUserIsRegistered() {
+    public void userAddedCreditCard() {
         page = utilities.getPageByName ( "Settings" );
         SettingsPage settingsPage = (SettingsPage) page;
         assertThat ( "Credit card is added" , settingsPage.receives ( settingsPage.successfullyAddedCardMsg ) , is ( "Your changes have been saved" ) );
