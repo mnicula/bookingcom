@@ -1,5 +1,5 @@
 Feature:booking
-  @searchCar @carRentals
+  @searchCar @carRentals @mnicula
   Scenario: User search a car rental
     Given user is on 'Home' page
     And user clicks on 'carRentals' button
@@ -11,7 +11,7 @@ Feature:booking
     When user clicks on orderByPrice
     Then results are ordered ascending by price
 
-    @bookCar @carRentals
+    @bookCar @carRentals @mnicula
     Scenario: User books a car rental
       Given user is on 'Home' page
       And user clicks on 'carRentals' button
@@ -29,7 +29,7 @@ Feature:booking
       And user clicks on 'BookNow'
       Then user is warned that payment was not processed
 
-      @saveForLater @carRentals
+      @saveForLater @carRentals @mnicula
         Scenario Outline: User saves for later a car rental
         Given user is on 'Home' page
         And user clicks on 'carRentals' button
@@ -47,4 +47,4 @@ Feature:booking
 
         Examples:
           | title | firstName  | surname       | email                        | phone         |
-          | Mr    | TEST       | AUTOMATION    | bookingauto@mailinator.com   | +37369695694  |
+          | Mr    | TEST       | AUTOMATION    | bookingatf@mailinator.com   | +37369695694  |

@@ -1,6 +1,6 @@
 package stepDefinition;
 
-import com.endava.booking.atf.page.AnyCommunityPage;
+//import com.endava.booking.atf.page.AnyCommunityPage;
 import com.endava.booking.atf.page.TravelCommunitiesPage;
 //import com.sun.java.util.jar.pack.Package;
 import comonSteps.BaseStep;
@@ -66,9 +66,9 @@ public class TravelCommunitiesSteps extends BaseStep {
     @And("^covername is correct on page '(.*)'$")
     public  void coverNameIsCorrect(String pageName){
         page = utilities.getPageByName ( pageName );
-        AnyCommunityPage anyCommunityPage = (AnyCommunityPage) page;
-        String it = anyCommunityPage.getCoverNameText();
-        System.out.println(it);
+    //    AnyCommunityPage anyCommunityPage = (AnyCommunityPage) page;
+      //  String it = anyCommunityPage.getCoverNameText();
+     //   System.out.println(it);
     }
     @And("^user chooses community by name '(.*)'$")
     public void userChoosesCommunity(String communityName){
