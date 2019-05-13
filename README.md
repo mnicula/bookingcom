@@ -71,5 +71,5 @@ The singleton pattern is useful because exactly one object is needed to coordina
 
 Have a output folder with .html report and logs. 
  * used "com.aventstack:extentreports-cucumber3-adapter" dependency
- * all info about output is in extend.properties
+ * all info about output files is in extent.properties
   
