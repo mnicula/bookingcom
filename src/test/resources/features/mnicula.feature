@@ -1,5 +1,5 @@
 Feature:booking
-  @searchCar @mnicula
+  @searchCar @carRentals
   Scenario: User search a car rental
     Given user is on 'Home' page
     And user clicks on 'carRentals' button
@@ -11,7 +11,7 @@ Feature:booking
     When user clicks on orderByPrice
     Then results are ordered ascending by price
 
-    @bookCar @mnicula
+    @bookCar @carRentals
     Scenario: User books a car rental
       Given user is on 'Home' page
       And user clicks on 'carRentals' button
@@ -29,7 +29,7 @@ Feature:booking
       And user clicks on 'BookNow'
       Then user is warned that payment was not processed
 
-      @saveForLater @mnicula
+      @saveForLater @carRentals
         Scenario Outline: User saves for later a car rental
         Given user is on 'Home' page
         And user clicks on 'carRentals' button
