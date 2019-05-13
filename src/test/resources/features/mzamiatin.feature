@@ -8,13 +8,13 @@ Feature: accommodations1
     And user clicks on 'nextSignInButton'
     And  user completes the 'passwordSignIn' field with '123123123' value
     And user clicks on 'signInButton'
-    And user is authenticated with rewards options
+    And user is authenticated
     And user is on 'Home' page
 
   @accommodations1
   Scenario: User searches and books a room
     When user completes the 'locationField' field with 'Budapest' value
-    And user selects '21' and '25' dates from 'Home' page
+    And user selects '20' and '25' dates from 'Home' page
     And user clicks on 'searchButton'
     Then user is on 'AccommodationsSearchResults' page
     When user clicks on first 'AccommodationName' link
