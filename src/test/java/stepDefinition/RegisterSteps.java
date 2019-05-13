@@ -5,7 +5,6 @@ import comonSteps.BaseStep;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-import sun.rmi.runtime.Log;
 import testContext.TestContext;
 
 import java.text.MessageFormat;
@@ -41,8 +40,6 @@ public class RegisterSteps extends BaseStep {
         page = utilities.getPageByName("Register");
         RegisterPage registerPage = (RegisterPage) page;
         assertThat ( "User is warned about duplicate" , registerPage.receives ( registerPage.errorMsgMail ) , is ( "You already have a Booking.com account registered to this email: testATF01@test.com. You can sign in directly." ) );
-//        Log.info ( MessageFormat.format ( "User is warned about dublicate mail: {0}" , registerPage.errorMsgMail ) );
-
 
     }
 

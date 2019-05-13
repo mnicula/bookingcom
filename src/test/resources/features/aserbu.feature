@@ -48,7 +48,7 @@ Feature: booking
     And user clicks on 'settingsOption'
     Then user is on 'Settings' page
     And user clicks on 'addCreditCardButton'
-    And user completes card data  with '<cardtype>' , '<expiryMonth>' , '<expiryYear>', '<cardNumber>' and '<cardHolder>'
+    And user completes card data with '<cardtype>' , '<expiryMonth>' , '<expiryYear>' , '<cardNumber>' and '<cardHolder>'
     And user clicks on 'saveCreditChangesButton'
     Then credit card is added
     Examples:

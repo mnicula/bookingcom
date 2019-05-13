@@ -24,7 +24,7 @@ public class GetawayDealsSearchResultsSteps extends BaseStep {
 
 
     @Then("^user can check if the filter works OK$")
-    public void userSeesFilteredDeals() {
+    public void userSeesFilteredDeals() throws InterruptedException {
         GetawayDealsSearchResultsPage getawayDealsSearchResultsPage = (GetawayDealsSearchResultsPage) page;
         getawayDealsSearchResultsPage.doesFilterWorkOK( );
     }

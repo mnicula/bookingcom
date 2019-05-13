@@ -9,7 +9,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
-import org.openqa.selenium.support.events.EventFiringWebDriver;
+
 
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
@@ -32,9 +32,7 @@ public class WebDriverManager {
         switch (browser) {
             case CHROME:
                 System.setProperty(Browser.CHROME.getDriverProperty(), DRIVER_PATH + "chromedriver.exe");
-                ChromeOptions options = new ChromeOptions();
-                options.addArguments("user-data-dir=target/custom/profile");
-                driver = new ChromeDriver(options);
+                driver = new ChromeDriver(setChromeOption());
                 break;
             case INTERNETEXPLORER:
                 DesiredCapabilities defaultZoom = DesiredCapabilities.internetExplorer();
@@ -46,8 +44,6 @@ public class WebDriverManager {
         goToHomePage();
         maximizeWindow();
         setImplicitWait();
-
-        driver.manage().deleteAllCookies();
         return driver;
     }
 
@@ -76,4 +72,7 @@ public class WebDriverManager {
         }
     }
 
+    public ChromeOptions setChromeOption(){
+         return FileReaderManager.getInstance().getConfigFileReader().getUserDataOption();
+    }
 }

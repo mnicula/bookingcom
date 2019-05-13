@@ -7,8 +7,13 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
+
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Properties;
 
 public class CarSearchResultsPage extends BasePage {
 
@@ -28,21 +33,20 @@ public class CarSearchResultsPage extends BasePage {
     List<WebElement> chooseButton2;
     @FindBy(xpath = "//a[contains(text(),'later')]")
     List<WebElement> saveForLater;
-    @FindBy(xpath="//select[@id='quote_title']")
+    @FindBy(xpath = "//select[@id='quote_title']")
     WebElement titleSelect;
-    @FindBy(xpath="//input[@id='f_name_input']")
+    @FindBy(xpath = "//input[@id='f_name_input']")
     WebElement firstNamePopUp;
-    @FindBy(xpath="//input[@id='surname_input']")
+    @FindBy(xpath = "//input[@id='surname_input']")
     WebElement surnamePopUp;
-    @FindBy(xpath="//input[@id='email_input']")
+    @FindBy(xpath = "//input[@id='email_input']")
     WebElement emailPopUp;
-    @FindBy(xpath="//input[@id='phone_input']")
-    WebElement phoneNumer;
-    @FindBy(xpath="//a[@class='cta']")
+    @FindBy(xpath = "//input[@id='phone_input']")
+    WebElement phoneNumber;
+    @FindBy(xpath = "//a[@class='cta']")
     WebElement emailDetails;
-    @FindBy(xpath="//span[@class='reference-number']")
-    static WebElement referenceNumber;
-
+    @FindBy(xpath = "//span[@class='reference-number']")
+    WebElement referenceNr;
 
     public CarSearchResultsPage(WebDriver driver) {
         super(driver);
@@ -99,19 +103,31 @@ public class CarSearchResultsPage extends BasePage {
         }
     }
 
-    public void clickEmailDetails(){
+
+    public void clickEmailDetails() throws IOException, InterruptedException {
         emailDetails.click();
+        Thread.sleep(5000);
+        try (OutputStream output = new FileOutputStream("src//test//resources//testdata.properties")) {
+            Properties prop = new Properties();
+            // set the properties value
+            prop.setProperty("referenceNumber", referenceNr.getText());
+            // save properties to project root folder
+            prop.store(output, null);
+        } catch (IOException io) {
+            io.printStackTrace();
+        }
+
     }
 
-    public void completePersonalInfo(String title, String firstName, String surname, String email, String phone)  {
+
+    public void completePersonalInfo(String title, String firstName, String surname, String email, String phone) {
         Select select = new Select(titleSelect);
         select.selectByValue(title);
         firstNamePopUp.sendKeys(firstName);
         surnamePopUp.sendKeys(surname);
         emailPopUp.sendKeys(email);
-        phoneNumer.sendKeys(phone);
+        phoneNumber.sendKeys(phone);
     }
-
 
 
 }

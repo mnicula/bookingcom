@@ -2,6 +2,7 @@ package com.endava.booking.atf.config;
 
 
 import com.endava.booking.atf.enums.Browser;
+import org.openqa.selenium.chrome.ChromeOptions;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -79,7 +80,21 @@ public class ConfigFileReader {
         return 15;
     }
 
-}
+    public ChromeOptions getUserDataOption(){
+        String userDataOption = properties.getProperty("userdata");
+        if(userDataOption.equals("true")){
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("user-data-dir=target/custom/profile");
+        return options;}
+        else if (userDataOption.equals("false")){
+           return new ChromeOptions();
+        }
+        else throw new RuntimeException("Chrome userdata option not specified in the " + PROPERTY_FILE_PATH + " file for the Key:userdata");
+    }
+
+    }
+
+
 
 
 
