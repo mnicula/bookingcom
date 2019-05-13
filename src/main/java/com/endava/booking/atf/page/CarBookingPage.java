@@ -36,6 +36,8 @@ public class CarBookingPage extends BasePage {
     WebElement BookNow;
     @FindBy(xpath="//h2[@class='display-title']")
     public WebElement errorMessage;
+    @FindBy(xpath = "//*[@id=\"page-wrapper\"]/div[4]/div[2]/p[1]")
+    WebElement copyright;
 
     public JavascriptExecutor jse;
     public WebDriver driver;
@@ -79,7 +81,7 @@ public class CarBookingPage extends BasePage {
         phone.sendKeys("+37369691234");
     }
 
-    public void enterPaymentDetails(){
+    public void enterPaymentDetails() throws InterruptedException {
         if(driver.getCurrentUrl().contains("error")){
           driver.navigate().refresh(); }
         else {
@@ -97,6 +99,7 @@ public class CarBookingPage extends BasePage {
         cardCVV2.sendKeys("123");
         cardCVV2.sendKeys(Keys.TAB);
         driver.switchTo().defaultContent();
+        scrollToFind(copyright);
     }
 }
 
